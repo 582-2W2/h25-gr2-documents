@@ -39,8 +39,10 @@
 			background-color: #995db5;
 
 			/*
-				Conteneurs en colonne
+				Conteneur flex en colonnes
 			*/
+			display: flex;
+			flex-direction: column;
 		}
 
 		a {
@@ -57,7 +59,7 @@
 			/*
 				Effet de transition sur 1/2 seconde
 			*/
-
+			transition: color 0.3s, background-color 0.3s;
 		}
 
 		/*Au survol du bouton ou lorsqu'il est activé*/
@@ -77,6 +79,16 @@
 			et on leur enlève la bordure du haut
 				
 		*/
+		@media screen and (min-width: 768px) {
+			nav {
+				flex-direction: row;
+				/* justify-content: space-evenly; */
+			}
+
+			nav a {
+				flex-grow: 1;
+			}
+		}
 
 
 		/*
@@ -86,6 +98,18 @@
 			une bordure à gauche : 1px solid rgba(60, 25, 80, 0.5);
 
 		*/
+		@media screen and (min-width: 992px) {
+			nav {
+				justify-content: end;
+			}
+
+			nav a {
+				flex-grow: 0;
+				border-top: none;
+				border-left: 2px solid rgba(60, 25, 80, 0.5);
+			}
+		}
+
 	</style>
 </head>
 

@@ -23,16 +23,16 @@
 			line-height: 1.5;
 			margin: 2vh 2vw;
 
+			font-size: 16px;
+		}
+
+		body {
 			/*
 				La taille de base des polices de caractères va se calculer automatiquement
 				On a PLUS BESOiN de faire des requêtes médias pour les différentes tailles d'écrans
 				les valeurs min, calcul et max SONT à ajuster et à valider pour chaque projet
 			*/
-
-		}
-
-		body {
-			
+			font-size: clamp(14px, 0.75vw + 0.75rem, 24px);
 		}
 
 		p {
