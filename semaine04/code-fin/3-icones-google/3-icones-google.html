@@ -9,7 +9,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<!-- Intégration des polices d'icônes Google -->
-
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
 	<style>
 		/* Normalisation supplémentaire
@@ -167,6 +167,7 @@
 
 		.description {
 			/*Non affiché sur téléphone*/
+			display: none;
 		}
 
 		/* Styles pour les écrans plus larges
@@ -196,6 +197,7 @@
 
 			.description {
 				/*Affichage des descriptions*/
+				display: block;
 			}
 		}
 
@@ -220,7 +222,11 @@
 				height: 40vh;
 			}
 
-			.material-icons {}
+			.material-icons {
+				font-size: 5rem;
+				color: #095797;
+				font-weight: bold;
+			}
 		}
 	</style>
 </head>

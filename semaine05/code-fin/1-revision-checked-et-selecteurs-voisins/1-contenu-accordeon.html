@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="utf-8" />
+        <title>1 - Effet accordéon avec :checked et séelecteurs d'adjacence</title>
+
+        <!-- Ajustement de la taille du viewport-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <!-- Police d'icônes de Google-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+        <style>
+            /* Normalisation supplémentaire
+        =============================================== */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Mise en page de base - Décoration
+        =============================================== */
+
+            html {
+                width: 100vw;
+                height: 100vh;
+                /*Ajustement de la taille des polices à la racine du document*/
+                font-size: clamp(14px, 0.75rem + 1vw, 20px);
+            }
+
+            body {
+                width: 80%;
+                margin: 0 auto;
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            }
+
+            main {
+                background-color: #e3eaf0;
+            }
+
+            section {
+                margin-top: 0.5rem;
+            }
+
+            label {
+                background: rgb(14, 102, 255);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 1rem;
+                color: #f3ece5;
+                text-align: center;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .contenu {
+                background: #000;
+                color: #f3ece5;
+                font-size: 0.9rem;
+                /*
+                    Au démarrage la hauteur maximale est de 0px,
+                    le contenu qui déborde est masqué et on déclare
+                    un effet de transition
+                */
+                max-height: 0px;
+                overflow: hidden;
+                transition: max-height 0.5s;
+            }
+
+            .contenu p {
+                margin-bottom: 0.8em;
+                padding: 1em 1em 0;
+            }
+
+            .fleche {
+                font-size: 2rem;
+                transition: rotate 0.5s;
+            }
+
+            /*Gestion de la case à cocher et apparition du texte*/
+            input[id^="section"]:checked + label > .fleche {
+                /*Rotation 3D de la flèche sur des X*/
+                rotate: 2.5turn;
+            }
+
+            input[id^="section"]:checked ~ .contenu {
+                /*
+                    Pour le texte, on met une grande hauteur maximale,
+                    pour s'assurer que la hauteur soit OK sur tous les périphériques
+                */
+                max-height: 2000px;
+            }
+
+            input[id^="section"] {
+                /*On dissimule la case à cocher*/
+                display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <h2>Montrer/cacher du texte avec une case à cocher masqué</h2>
+        </header>
+
+        <section>
+            <input type="checkbox" id="section1" />
+            <label for="section1"
+                ><span>Ouvrir pour voir la description</span>
+                <span class="material-icons fleche">expand_more</span>
+            </label>
+
+            <div class="contenu">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+            </div>
+        </section>
+        <section>
+            <input type="checkbox" id="section2" />
+            <label for="section2"
+                ><span>Ouvrir pour voir la description</span>
+                <span class="material-icons fleche">expand_more</span>
+            </label>
+
+            <div class="contenu">
+                <p>
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Similique magnam iure ducimus omnis eum iusto tenetur repellat? Architecto ducimus nisi illo maxime. Adipisci placeat quam repellat ipsum dolorem? Nisi pariatur excepturi ducimus quasi animi facilis voluptatem magni ex. Omnis nihil consequatur recusandae possimus nesciunt impedit quasi. Ipsam nobis nisi libero, sequi sint totam. Quibusdam odio, optio amet expedita modi quod quam dolore numquam aliquam velit architecto, iusto alias vel autem reiciendis magni est repudiandae quae corporis facere distinctio tempore vero, dolor et! Assumenda voluptas, ab doloribus reprehenderit obcaecati placeat, praesentium necessitatibus laboriosam pariatur nulla exercitationem rem dolorem itaque temporibus, porro est ad sed voluptates sequi vel. Ab similique quibusdam aliquid a blanditiis sint et ut placeat nam. Veritatis asperiores temporibus assumenda! Totam dignissimos quos soluta itaque voluptate nesciunt ducimus mollitia explicabo culpa odio dolorum, consequatur veritatis iure odit praesentium at nam. Dolore nisi libero amet ut quisquam fugit. Optio a dolore, aliquid quod veritatis deleniti itaque in consectetur, debitis cumque odio, rem magni saepe quisquam quos sit. Fugit assumenda suscipit possimus iure! Distinctio iusto nemo aspernatur architecto impedit! Perspiciatis, eveniet voluptatibus ratione aliquid quibusdam placeat tenetur, voluptates deserunt nulla, nihil qui recusandae velit laudantium pariatur ducimus consequuntur vel. Praesentium laudantium dolores adipisci illum vero rerum modi possimus at fugit sed? Dolorem nesciunt voluptatibus modi cumque iusto sint error expedita libero ullam fuga? Consequuntur sit voluptates repellat sed aliquid amet magnam maiores minima nisi eos. Qui tenetur adipisci inventore repellat dignissimos debitis minus incidunt mollitia illo reprehenderit cum consequuntur deserunt quos quasi maxime commodi, quia numquam. Quia assumenda tempora quam dolore numquam, dicta provident! Libero nostrum reiciendis aspernatur quia natus sint. Commodi ab fuga doloribus nostrum recusandae voluptatibus unde iusto explicabo enim, incidunt at veniam ea atque laborum ipsam totam itaque architecto amet asperiores aspernatur. Tenetur at porro exercitationem voluptates. Perferendis.
+                </p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </section>
+        <section>
+            <input type="checkbox" id="section3" />
+            <label for="section3"
+                ><span>Ouvrir pour voir la description</span>
+                <span class="material-icons fleche">expand_more</span>
+            </label>
+
+            <div class="contenu">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <p>
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+                    occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                </p>
+            </div>
+        </section>
+    </body>
+</html>

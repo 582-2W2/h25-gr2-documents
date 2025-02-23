@@ -55,7 +55,7 @@
 			cursor: pointer;
 
 			/*Effet de transition sur la rotation*/
-			transition: transform 1s;
+			transition: rotate 1000ms;
 		}
 
 		.menu {
@@ -64,11 +64,14 @@
 			text-align: center;
 
 			/*Pour cet exemple, il prend toute la place restante en hauteur*/
+			flex: 1 1 auto;
 
 			/*On le place à gauche de l'écran*/
+			/* transform: translateX(-100%); */
+			translate: -100%;
 
 			/*Effet de transition quand la position sur l'axe des X change*/
-			transition: transform 1s;
+			transition: translate 1s;
 		}
 
 		/* Contrôle du menu et du bouton burger...
@@ -79,11 +82,17 @@
 			n'est pas affichée...mais restera fonctionnelle...
 		==========================================================================*/
 
-		#checkboxPourBoutonBurger {}
+		#checkboxPourBoutonBurger:checked + label {
+			rotate: 5turn;
+		}
 
-		#checkboxPourBoutonBurger {}
+		#checkboxPourBoutonBurger:checked ~ .menu {
+			translate: 0;
+		}
 
-		#checkboxPourBoutonBurger {}
+		#checkboxPourBoutonBurger {
+			display: none;
+		}
 
 		/* Ajustements pour les périphériques de plus grande taille ...
 		========================================================================== 
@@ -91,9 +100,14 @@
 		==========================================================================*/
 
 		@media screen and (min-width: 768px) {
-			.boutonBurger {}
+			.boutonBurger {
+				display: none;
+			}
 
-			.menu {}
+			.menu {
+				translate: 0;
+				flex: 0 1 auto;
+			}
 		}
 	</style>
 </head>
