@@ -120,14 +120,33 @@
                 justify-content: center;
 
                 /*Au démarrage on met complètement transparent*/
+                opacity: 0;
 
                 /*Effet de transition*/
+                transition: opacity 300ms;
+
+                /* Cet élément ne doit pas intercepter les évenements de pointeur quand il est transparent */
+                pointer-events: none;
             }
 
             /*On met tous les boutons du menu complètement à gauche*/
 
             .menu a {
-                /*Effet de transition*/
+                translate: -100%;
+                transition: translate 300ms;
+            }
+
+            .menu a:nth-child(2) {
+                transition-delay: 500ms;
+            }
+            .menu a:nth-child(3) {
+                transition-delay: 1000ms;
+            }
+            .menu a:nth-child(4) {
+                transition-delay: 1500ms;
+            }
+            .menu a:nth-child(5) {
+                transition-delay: 2000ms;
             }
 
             .bouton-burger {
@@ -168,10 +187,13 @@
             On met le menu opaque
         */
             #cc-pour-bouton-burger:checked ~ .barre-menu > .menu {
+                opacity: 1;
+                pointer-events: initial;
             }
 
             /*Arrivée des différents boutons avec un délai*/
             #cc-pour-bouton-burger:checked ~ .barre-menu > .menu a {
+                translate: 0;
             }
 
             #cc-pour-bouton-burger {
@@ -240,6 +262,7 @@
 
             <section>
                 <h3>Navigation basée sur :</h3>
+                <a href="http://www.lapresse.ca">La Presse</a>
                 <ul>
                     <li>CSS Flexbox pour la disposition.</li>
                     <li>
