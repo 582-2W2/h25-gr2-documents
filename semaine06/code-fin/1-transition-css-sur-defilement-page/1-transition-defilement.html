@@ -88,9 +88,7 @@
 				On va les faire apparaître (par transition) avec le défilement de la page
 				quand ils vont atteindre une certaine "position".
 			*/
-			opacity: 0.2;
-			translate: 70%;
-			border: 10px solid red;
+			
 	
 		}
 
@@ -203,28 +201,6 @@
 			</div>
 		</div>
 	</section>
-
-	<script>
-		// Détecter le défilement dans la page Web (le document)
-		document.addEventListener("scroll", gererAffichage);
-
-		let lesBoites = document.querySelectorAll(".conteneur-principal");
-
-		function gererAffichage() {
-			// console.log("Défilement détecté...");
-			// console.log("Montant du défilement : ", window.scrollY);
-			// console.log("Hauteur du Viewport : ", window.innerHeight);
-			let hauteurViewport = window.innerHeight;
-
-			for (const boite of lesBoites) {
-				const infoBoite = boite.getBoundingClientRect();
-				console.log("Information sur chaque boite : ", infoBoite);
-								
-			}
-
-		}
-
-	</script>
 </body>
 
 </html>
