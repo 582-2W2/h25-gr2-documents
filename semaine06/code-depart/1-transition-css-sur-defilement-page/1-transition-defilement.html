@@ -88,10 +88,12 @@
 				On va les faire apparaître (par transition) avec le défilement de la page
 				quand ils vont atteindre une certaine "position".
 			*/
-			opacity: 0.2;
-			translate: 70%;
-			border: 10px solid red;
-	
+			opacity: 0;
+			translate: 100%;
+			/* border: 10px solid red; */
+			
+			/* Effet de transition lorsque les valeurs de "opacity" et "translate" sont changés */
+			transition: opacity 1s, translate 0.5s;
 		}
 
 		/* Styles pour les écrans plus larges
@@ -210,16 +212,31 @@
 
 		let lesBoites = document.querySelectorAll(".conteneur-principal");
 
+		// FAUX
+		// console.log("Info sur les boites : ", lesBoites.getBoundingClientRect());
+		
 		function gererAffichage() {
 			// console.log("Défilement détecté...");
 			// console.log("Montant du défilement : ", window.scrollY);
-			// console.log("Hauteur du Viewport : ", window.innerHeight);
 			let hauteurViewport = window.innerHeight;
+			console.log("Hauteur du Viewport : ", hauteurViewport);
 
 			for (const boite of lesBoites) {
 				const infoBoite = boite.getBoundingClientRect();
-				console.log("Information sur chaque boite : ", infoBoite);
-								
+				// console.log("Information sur chaque boite : ", infoBoite);
+				console.log("Le nombre de pixels du haut de la fenêtre au bas de la boîte : ", infoBoite.bottom);
+				
+				if(infoBoite.bottom < hauteurViewport) {
+					// La boite de contenu est maintenant visible entièrement dans le 
+					// viewport, et donc on veut la faire apparaître (changer l'opacité
+					// et le déplacement (translate))
+					boite.style.opacity = 1;
+					boite.style.translate = 0;
+				}
+				else {
+					boite.style.opacity = 0;
+					boite.style.translate = "100%";
+				}
 			}
 
 		}

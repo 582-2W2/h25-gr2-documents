@@ -21,7 +21,15 @@
 		}
 
 		/* Définir une animation simple nommée changer-couleur */
-		
+		@keyframes changer-couleur {
+			0% {
+				background-color: red;
+			}
+			100% {
+				background-color: yellow;
+			}
+		}
+
 
 		div {
 			width: 20vmin;
@@ -29,7 +37,8 @@
 			border: 1px solid black;
 
 			/* Appliquer l'animation changer-couleur avec une durée de 3 secondes */
-			
+			animation-name: changer-couleur;
+			animation-duration: 3s;
 		}
 
 	</style>

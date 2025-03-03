@@ -31,7 +31,18 @@
 				/* À 50% couleur de fond jaune et mise à l'échelle 4 */
 				/* À 75% même chose que 25% */
 				/* À la fin (to, 100%) même chose qu'au départ */
-
+				from, to {
+					background-color: red;
+					scale: 1 1;
+				}
+				25%, 75% {
+					background-color: green;
+					scale: 2 1;
+				}
+				50% {
+					background-color: yellow;
+					scale: 4 1;
+				}
 			}
 
 
@@ -44,7 +55,8 @@
 				transform-origin: left top;
 
 				/* Appliquer l'animation sur 5 secondes */
-				
+				animation-name: changer-couleur-et-taille;
+				animation-duration: 5s;
 			}
 
 		</style>
