@@ -7,10 +7,14 @@
 > :construction: = en cours
 > :heavy_check_mark: = complété
 
-### Semaine 6 :checkered_flag:
+
+### Semaine 7 :checkered_flag:
+>Animation CSS (suite) : les fonctions temporelles, les courbes de Bézier, les grands principes de l'animation.
+
+### Semaine 6 :construction:
 >Défilement et apparition avec effet de transition des éléments dans une page Web. Animation par images-clés en CSS.
 
-### Semaine 5 :construction:
+### Semaine 5 :heavy_check_mark:
 >Diverses stratégies d'affichage d'un menu adaptatif sur appareil mobile (ou viewport restreint en largeur en général). Contrôle de l'affichage du menu et du défilement de la page en arrière plan en JavaScript.
 
 ### Semaine 4 :heavy_check_mark:

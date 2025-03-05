@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3a - Accélération personnalisée avec effet de rebond</title>
+
+    <style>
+        /* Normalisation supplémentaire
+        =============================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styles de base
+        =============================================== */
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+
+        section {
+            display: flex;
+            width: 60vmin;
+            height: 60vmin;
+            border: 5px solid #FF0088;
+        }
+
+
+        /* Images-clés de l'animation */
+
+        @keyframes animer-rond {
+            from {
+                scale: 0.3;
+            }
+
+            to {
+                scale: 4;
+            }
+        }
+
+        div {
+            margin: auto;
+            width: 15vmin;
+            height: 15vmin;
+            border-radius: 50%;
+            background-color: #00AABB;
+            /*Propriétés d'animation*/
+            animation: animer-rond 2s infinite;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Effet de battement</h2>
+    <section>
+        <div></div>
+    </section>
+
+</body></html>

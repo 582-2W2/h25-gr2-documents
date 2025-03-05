@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3c - Saut et rebondissement</title>
+
+    <style>
+        /* Normalisation supplémentaire
+        =============================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styles de base
+        =============================================== */
+        body {
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+        }
+
+        section {
+            width: 60vmin;
+            height: 30vmin;
+            border: 0.5vmin solid #FF0088;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        /* Images-clés de l'animation */
+
+
+        @keyframes saut-avec-rebonds {
+            from,20%,
+            55%,
+            80%,
+            to {
+                /*Le carré va monter à la prochaine image-clé, on décélère*/
+   
+                translate: 0 0;
+            }
+
+            40%,
+            45% {
+                 /*Le carré va descendre à la prochaine image-clé, on accélère*/
+
+                 translate: 0 -10vmin;
+            }
+
+            70% {
+                /*Le carré va descendre à la prochaine image-clé, on accélère*/
+                
+                translate: 0 -5vmin;
+            }
+
+            90% {
+                /*Le carré va descendre à la prochaine image-clé, on accélère*/
+               
+                translate: 0 -2vmin;
+            }
+        }
+
+
+        /* Images-clés de l'animation */
+
+        div {
+            width: 5vmin;
+            height: 5vmin;
+            background-color: #00AABB;
+            transform-origin: center bottom;
+
+            /*Propriétés d'animation*/
+            animation: saut-avec-rebonds 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Sauter avec effet de rebond</h2>
+    <section>
+        <div> </div>
+    </section>
+    <p><small>Recharger la page pour revoir l'animation</small></p>
+
+</body>
+
+</html>

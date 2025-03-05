@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4 - Animation/Transition CSS : la fonction steps()</title>
+
+    <!-- Polices utilisées
+    Pour une animation lettre par lettre, la police doit être de type Monospace-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        /* Normalisation supplémentaire
+        ============================================================*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Mise en page
+        ============================================================*/
+        body {
+            width: 100vw;
+            height: 100vh;
+
+            background-color: #24aecd;
+
+            /*Conteneur Flex en colonne*/
+            display: flex;
+            flex-direction: column;
+        }
+
+        header,
+        footer {
+            width: 100vw;
+            height: 8vh;
+            padding: 0.6rem 0;
+            background-color: #ffad40;
+            color: #db3d23;
+            font-family: 'Roboto Mono', monospace;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+
+            /*Conteneur flex en rangée centré verticalement*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        header {
+            box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.3);
+        }
+
+
+        h1 {
+            font-size: 2rem;
+            text-shadow: 2px 2px #84471e;
+            /*Mettre une position relative afin de pouvoir mettre la position du span en absolu*/
+            position: relative;
+        }
+
+        h1>span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            background-color: #ffad40;
+            border-left: .1rem solid black;
+        }
+
+        section {
+            width: 100%;
+            background: url(images/arbreAutomne.png) no-repeat left top;
+            background-size: auto 100%;
+            position: relative;
+
+            /*Étirement comme item flex*/
+            flex-grow: 1;
+        }
+
+        /* Transition sur la balise footer
+        ============================================================*/
+        footer {
+           
+        }
+
+        footer:hover {
+            background-color: #24aecd;
+        }
+
+
+        /* Animation du poulet
+        ============================================================*/
+        /*Animation du déplacement vertical*/
+        @keyframes deplacer-poulet {
+            from {
+                translate: 0 0;
+                animation-timing-function: ease-in;
+            }
+
+            to {
+                translate: 0 100%;
+                animation-timing-function: ease-out;
+            }
+        }
+
+        .deplacement-poulet {
+            /*Animation du déplacement du poulet*/
+            animation: deplacer-poulet 1s infinite alternate;
+        }
+
+        /*Animation de la feuille de sprites : animer-vol-poulet */
+
+
+        .vol-poulet {
+            margin: 0 auto;
+            background-image: url(images/feuilleSpritesPoulet.png);
+
+            /*Dimensions des vignettes (frames)*/
+            height: 176px;
+            width: 208px;
+
+            /*Animation de la feuille de sprites du poulet pour 8 images...*/
+   
+        }
+
+
+        /* Animation du titre - examiner d'abord les sélecteurs h1 et span
+        ===================================================================*/
+        @keyframes ecrire-titre {
+
+        }
+
+        @keyframes clignotement {
+            from,
+            to {
+                border-color: transparent
+            }
+
+            50% {
+                border-color: black
+            }
+        }
+
+        .animer-titre {
+            /*Affecter les 2 animations
+            Le nombre d'étapes pour l'écriture du texte doit correspondre au nombre de caractère dans la chaîne y compris les espaces
+            */
+  
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>ANIMER PAR ÉTAPES AVEC CSS...<span class="animer-titre">&nbsp;</span></h1>
+    </header>
+    <section>
+        <div class="deplacement-poulet">
+            <div class="vol-poulet"></div>
+        </div>
+    </section>
+    <footer>Avec CSS, la fonction steps() nous permet d'animer par étapes successives (feuille de sprites, écriture de texte, etc...)</footer>
+
+</body>
+
+</html>
