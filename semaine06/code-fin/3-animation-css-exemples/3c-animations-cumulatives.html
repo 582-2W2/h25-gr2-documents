@@ -77,7 +77,8 @@
                 position: absolute;
 
                 /*Au départ on s'assure que les feuilles sont en dehors du paysage...*/
-                transform: translateX(-300%);
+                /* transform: translateX(-300%); */
+                translate: -100%;
             }
 
             /*Pour voir le déplacement des conteneurs des feuilles*/
@@ -120,17 +121,32 @@
 
             /* Animation du déplacement vertical des feuilles */
             @keyframes deplacement-vertical-des-feuilles {
-
+                from {
+                    translate: 0 0;
+                    rotate: x 0;
+                }
+                to {
+                    translate: 0 calc(75vh - 3rem);
+                    rotate: x 1turn;
+                }
             }
 
             /* Animation du déplacement horizontal des conteneurs de feuille */
             @keyframes deplacement-conteneur-feuille {
-
+                from {
+                    translate: 0;
+                    rotate: y 0;
+                }
+                to {
+                    translate: calc(75vw - 5rem);
+                    rotate: y 360deg;
+                }
+                
             }
 
             /* Appliquer l'animation aux conteneurs de feuille */
             .conteneur-feuille {
-                
+               animation: deplacement-conteneur-feuille 5s infinite alternate; 
             }
 
             /*
@@ -138,17 +154,17 @@
             */
             .conteneur-feuille:nth-child(2) {
                 /*Délai de 2 secondes avant le début de l'animation*/
-
+                animation-delay: 1s;
             }
 
             .conteneur-feuille:nth-child(3) {
                 /*Délai de 4 secondes avant le début de l'animation*/
-
+                animation-delay: 2.3s;
             }
 
             /* Appliquer l'animation aux feuilles */
             .feuille {
-
+                animation: deplacement-vertical-des-feuilles 3s infinite alternate;
             }
 
             /*
@@ -156,12 +172,12 @@
             */
             .feuille2 {
                 /*Délai de 2 secondes avant le début de l'animation*/
-
+                animation-delay: 2s;
             }
 
             .feuille3 {
                 /*Délai de 4 secondes avant le début de l'animation*/
-                
+                animation-delay: 3657ms;
             }
         </style>
     </head>

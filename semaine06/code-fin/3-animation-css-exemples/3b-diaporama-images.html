@@ -35,19 +35,31 @@
 
 
         .diaporama:hover {
-            
+            animation-play-state: paused;
         }
 
         /* Définir une animation CSS nommée "fondu-image" (changer l'image de fond)
         =============================================== */
-
+        @keyframes fondu-image {
+            from {
+                background-image: url(images/image1.jpg);
+            }
+            33% {
+                background-image: url(images/image2.jpg);
+            }
+            66% {
+                background-image: url(images/image3.jpg);
+            }
+            to {
+                background-image: url(images/image4.jpg);
+            }
+        }
 
 
         /* Appliquer de l'animations CSS
         =============================================== */
         .diaporama {
-           
-           
+           animation: fondu-image 5s 2s 2 both;
         }
     </style>
 </head>

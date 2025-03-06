@@ -11,7 +11,7 @@
 ### Semaine 7 :checkered_flag:
 >Animation CSS (suite) : les fonctions temporelles, les courbes de Bézier, les grands principes de l'animation.
 
-### Semaine 6 :construction:
+### Semaine 6 :heavy_check_mark:
 >Défilement et apparition avec effet de transition des éléments dans une page Web. Animation par images-clés en CSS.
 
 ### Semaine 5 :heavy_check_mark:

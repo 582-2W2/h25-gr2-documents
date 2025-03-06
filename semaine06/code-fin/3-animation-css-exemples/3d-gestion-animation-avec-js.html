@@ -58,7 +58,7 @@
             /* Appliquer l'animations à la classe 'vague'
             * Les délais pour l'animation de chaque div sont affectés avec JavaScript
             * ======================================================================== */
-            .vague {
+            .vague > div {
                 animation: animation-vague 1s alternate infinite;
             }
         </style>
@@ -70,25 +70,43 @@
             <h3>Déclarer les délais d'animation (<code>animation-delay</code>) avec JavaScript...</h3>
         </header>
 
-        <section>
-            <div class="vague"></div>
-            <div class="vague"></div>
-            <div class="vague"></div>
-            <div class="vague"></div>
-            <div class="vague"></div>
-            <div class="vague"></div>
-            <div class="vague"></div>
-            <div class="vague"></div>
-            <div class="vague"></div>
-            <div class="vague"></div>
-            <div class="vague"></div>
-            <div class="vague"></div>
+        <section class="vague">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
         </section>
 
         <script>
-            // Récupérer tous les éléments div de classe ".vague"
+            // Récupérer tous les éléments div de la ".vague"
+            const barres = document.querySelectorAll(".vague > div");
 
             // Leur attribuer des délais d'animation différents par incréments de 0.1s
+            let delai = 0;
+            for (const uneBarre of barres) {
+                delai = delai + Math.random()/15;
+                uneBarre.style.animationDelay = delai + "s";
+            }
             
         </script>
     </body>
