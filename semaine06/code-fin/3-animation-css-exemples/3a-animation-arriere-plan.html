@@ -43,19 +43,36 @@
             display:flex;
             justify-content: center;
             align-items: center;
+
+            /* Utiliser l'animation changer-couleur */
+            /* animation-name: changer-couleur;
+            animation-duration: 5s;
+            animation-delay: 5s;
+            animation-fill-mode: both;
+            animation-iteration-count: infinite; */
+
+            animation: changer-couleur 5s infinite;
+
         }
 
 
         /* Animations CSS: changer-couleur
         #33CCCC #33CC36 #B8CC33 #FCCA00 #33CC36 #33CCCC
         =============================================== */
-
-
-
-        /* Affectation de l'animations CSS
-        =============================================== */
-
-        
+        @keyframes changer-couleur {
+            from, to {
+                background-color: #33CCCC;
+            }
+            20%, 80% {
+                background-color: #33CC36;
+            }
+            40% {
+                background-color: #B8CC33;
+            }
+            60% {
+                background-color: #FCCA00;
+            }
+        }
     </style>
 
 </head>
