@@ -104,7 +104,7 @@
             // Leur attribuer des délais d'animation différents par incréments de 0.1s
             let delai = 0;
             for (const uneBarre of barres) {
-                delai = delai + Math.random()/15;
+                delai = delai + 0.1;
                 uneBarre.style.animationDelay = delai + "s";
             }
             

@@ -39,13 +39,23 @@
                 /*Conteneur flex en rangée, centré verticalement*/
                 display: flex;
                 align-items: center;
+
+                /* Chaque section prend la hauteur disponible dans le viewport */
+                height: 100vh;
             }
 
             /*
                 Définir une animation par images-clés nommée "animation-texte"
                 pour faire défiler le texte vers la gauche.
             */
-            
+            @keyframes chyron {
+                from {
+                    translate: 0;
+                }
+                to {
+                    translate: -100%;
+                }
+            }
 
             span {
                 font-size: 8rem;
@@ -53,12 +63,13 @@
                     Propriété qui permet d'éviter les retours à la ligne entre 
                     les mots (espaces "vides" ou "blancs") si le texte déborde.
                 */
-                
+                white-space: nowrap;
 
                 /*
                     Appliquer l'animation du texte.
                 */
-                
+                animation: chyron 10s infinite;
+                animation-timing-function: linear;
             }
 
             /*
@@ -66,6 +77,16 @@
                 pour faire osciller l'image d'un tour tout en appliquant une 
                 mise à l'échelle adéquate.
             */
+            @keyframes chargement {
+                from, to {
+                    rotate: 0;
+                    scale: 1;
+                }
+                50% {
+                    rotate: 1turn;
+                    scale: 1.5;
+                }
+            }
 
             img {
                 width: 30vmin;
@@ -75,9 +96,13 @@
                     Appliquer l'animation : au démarrage, l'animation est en  
                     pause et l'image est invisible (par opacité) 
                 */
+                animation: chargement 2s infinite alternate;
+                animation-timing-function: linear;
+                animation-play-state: paused;
+                opacity: 0;
 
                 /* Effet de transition sur l'opacité */
-
+                transition: opacity 700ms;
             }
         </style>
     </head>
@@ -89,12 +114,12 @@
                 le texte est répété 2 fois
             -->
             <span>
-                Animation de texte qui défile à l'infini et déchenchement d'une animation sur un événement
+                Animation de texte qui défile à l'infini et déclenchement d'une animation sur un événement
                 <code>scroll</code> 
                 &#8595;.
             </span>
             <span>
-                Animation de texte qui défile à l'infini et déchenchement d'une animation sur un événement
+                Animation de texte qui défile à l'infini et déclenchement d'une animation sur un événement
                 <code>scroll</code>
                 &#8595;.
             </span>
@@ -107,11 +132,21 @@
             // On déclenche l'animation de l'image lorsque le haut de celle-ci 
             // atteint la moitié de la hauteur de la fenêtre
             function afficherAnimChargement() {
-                
+                const hauteurVp = window.innerHeight;
+                const imageChargement = document.querySelector("section > img");
+                const hautImage = imageChargement.getBoundingClientRect().top;
+                if(hautImage < hauteurVp/2) {
+                    imageChargement.style.opacity = 1;
+                    imageChargement.style.animationPlayState = "running";
+                }
+                else {
+                    imageChargement.style.opacity = 0;
+                    imageChargement.style.animationPlayState = "paused";
+                }
             }
 
             /* Gestionnaire d'événement "défilement" sur la fenêtre ou le document */
-
+            document.addEventListener("scroll", afficherAnimChargement);
         </script>
     </body>
 </html>
