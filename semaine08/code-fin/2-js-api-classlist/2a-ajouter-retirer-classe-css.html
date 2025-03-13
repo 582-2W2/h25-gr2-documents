@@ -230,6 +230,29 @@
 		Script JavaScript : fonctionnalités des 3 boutons pour ajouter,
 		retirer, ou "basculer" une classe CSS sur les rectangles animés.
 	-->
+	<script>
+		// Tous les rectangles
+		const lesRectangles = document.querySelectorAll("section > div");
+
+		// L'article de menu "Ajouter une classe"
+		const menuAjouter = document.querySelector("nav.menu a:first-child");
+		// Gérer l'événement "clic"
+		menuAjouter.addEventListener("click", ajouterClasse);
+		function ajouterClasse() {
+			// Parcourir les rectangles un par un...
+			for (const rectangle of lesRectangles) {
+				// ... et ajouter une classe sur chaque rectangle.
+				rectangle.classList.add("anim-rectangle");
+			}
+		}
+
+		// Faites la même chose pour retirer une classe
+
+
+		// Faites la même chose pour faire "basculer" une classe
+
+		
+	</script>
 
 </body>
 
