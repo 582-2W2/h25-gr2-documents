@@ -34,32 +34,31 @@
 
 
         @keyframes saut-avec-rebonds {
-            from,
-            20%,
+            from,20%,
             55%,
             80%,
             to {
                 /*Le carré va monter à la prochaine image-clé, on décélère*/
-                animation-timing-function: cubic-bezier(.07,.62,.2,.95);
+   
                 translate: 0 0;
             }
 
             40%,
             45% {
-                /*Le carré va descendre à la prochaine image-clé, on accélère*/
-                animation-timing-function: cubic-bezier(.77,.12,.9,.35);
-                translate: 0 -10vmin;
+                 /*Le carré va descendre à la prochaine image-clé, on accélère*/
+
+                 translate: 0 -10vmin;
             }
 
             70% {
                 /*Le carré va descendre à la prochaine image-clé, on accélère*/
-                animation-timing-function: cubic-bezier(.77,.12,.9,.35);
+                
                 translate: 0 -5vmin;
             }
 
             90% {
                 /*Le carré va descendre à la prochaine image-clé, on accélère*/
-               animation-timing-function: cubic-bezier(.77,.12,.9,.35);
+               
                 translate: 0 -2vmin;
             }
         }

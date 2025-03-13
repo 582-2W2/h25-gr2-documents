@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8">
+	<title>5b - Animer un ballon avec les principes d'animation</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Importation du script pour la police d'icônes Awesome-->
+	<script src="https://use.fontawesome.com/039279f0d1.js"></script>
+
+	<style>
+        /* Normalisation supplémentaire
+        ============================================================*/
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Style de base
+        ============================================================*/
+		body {
+			font-family: Helvetica, Arial, sans-serif;
+			font-size: 1em;
+			text-align: center;
+			background-color: #97969c;
+			min-width: 100vw;
+			min-height: 100vh;
+			/*Conteneur flex*/
+			display: flex;
+			flex-direction: column;
+		}
+
+		header,
+		footer {
+			background-color: #4b4a4f;
+			color: white;
+		}
+
+		h1 {
+			font-size: 1.5em;
+		}
+
+		footer {
+			padding: 0.5em;
+		}
+
+section {
+	width: 50%;
+	height: 30em;
+	border: 0.2em solid black;
+	background: linear-gradient(#88dddd, #ffffff);
+	/*Positionnement au centre*/
+	margin: auto;
+
+	/*Conteneur flex*/
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	/*Effet de perspective : distance de 1500px et point de fuite au centre du conteneur*/
+	perspective: 1500px;
+	perspective-origin: center center;
+}
+
+		section>div {
+			width: 5em;
+			height: 5em;
+			/*Arrondir les éléments*/
+			border-radius: 50%;
+			/*Changement du point de transformation du ballon et de l'ombre, en bas au centre*/
+			transform-origin: center bottom;
+		}
+
+
+		/*Règles @keyframes pour les animations: animer-ballon et animer-ombre*/
+		@keyframes animer-ballon {
+			from {
+
+			}
+
+			93% {
+				/*Le déplacement tient compte de l'épaisseur de la bordure du conteneur parent*/
+
+			}
+
+			to {
+			
+			}
+		}
+
+		@keyframes animer-ombre {
+			from {
+
+			}
+
+			93% {
+
+			}
+
+			to {
+
+			}
+		}
+
+	
+		/*CSS propre au ballon et à l'ombre*/
+		.ballon {
+			background-color: white;
+
+			/*Affichage en avant-plan????*/
+			z-index: 1;
+			/*Propriétés de l'animation CSS*/
+			
+		}
+
+		.ombre {
+			background-color: black;
+
+			/*Propriétés de l'animation CSS*/
+			
+		}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<h1>Application des principes d'animation...</h1>
+		<p>Reproduire un effet de rebond avec des transformations CSS</p>
+	</header>
+
+	<section>
+		<div class="ballon">
+			<i class="fa fa-futbol-o fa-5x"></i>
+		</div>
+
+		<div class="ombre"></div>
+	</section>
+
+	<footer>Animations CSS avec des transformations et des courbes d'accélération personnalisées</footer>
+
+</body>
+
+</html>

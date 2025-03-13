@@ -8,7 +8,10 @@
 > :heavy_check_mark: = complété
 
 
-### Semaine 7 :construction:
+### Semaine 8 :construction:
+>JavaScript : l'API ClassList du DOM (accès et manipulation de la liste des classes CSS associées avec les éléments HTML).
+
+### Semaine 7 :checkered_flag:
 >Animation CSS (suite) : les fonctions temporelles, les courbes de Bézier, les grands principes de l'animation.
 
 ### Semaine 6 :heavy_check_mark:

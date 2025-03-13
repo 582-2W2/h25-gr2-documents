@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>1 - Animation CSS & événement scroll / Révision</title>
+
+        <!--Polices de caractères de Google-->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
+
+        <style>
+            /* Normalisation supplémentaire 
+        =============================================== */
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            /* Mise en page de base
+        =============================================== */
+
+            html {
+                font-family: "Rubik", sans-serif;
+                /*Ajustement de la taille des polices à la racine du document*/
+                font-size: clamp(12px, 0.5rem + 0.5vw, 18px);
+            }
+
+            body {
+                background-color: #e7e4df;
+            }
+
+            section {
+                /*On cache le contenu qui déborde*/
+                overflow-x: hidden;
+                /*Conteneur flex en rangée, centré verticalement*/
+                display: flex;
+                align-items: center;
+            }
+
+            /*
+                Définir une animation par images-clés nommée "animation-texte"
+                pour faire défiler le texte vers la gauche.
+            */
+            
+
+            span {
+                font-size: 8rem;
+                /* 
+                    Propriété qui permet d'éviter les retours à la ligne entre 
+                    les mots (espaces "vides" ou "blancs") si le texte déborde.
+                */
+                
+
+                /*
+                    Appliquer l'animation du texte.
+                */
+                
+            }
+
+            /*
+                Définir une animation par images-clés nommée "animation-chargement"
+                pour faire osciller l'image d'un tour tout en appliquant une 
+                mise à l'échelle adéquate.
+            */
+
+            img {
+                width: 30vmin;
+                height: 30vmin;
+                margin: auto;
+                /* 
+                    Appliquer l'animation : au démarrage, l'animation est en  
+                    pause et l'image est invisible (par opacité) 
+                */
+
+                /* Effet de transition sur l'opacité */
+
+            }
+        </style>
+    </head>
+
+    <body>
+        <section>
+            <!--
+                Pour le trucage de l'animation... 
+                le texte est répété 2 fois
+            -->
+            <span>
+                Animation de texte qui défile à l'infini et déchenchement d'une animation sur un événement
+                <code>scroll</code> 
+                &#8595;.
+            </span>
+            <span>
+                Animation de texte qui défile à l'infini et déchenchement d'une animation sur un événement
+                <code>scroll</code>
+                &#8595;.
+            </span>
+        </section>
+
+        <section>
+            <img src="image/loader.svg" alt="Chargement de la page..." />
+        </section>
+        <script>
+            // On déclenche l'animation de l'image lorsque le haut de celle-ci 
+            // atteint la moitié de la hauteur de la fenêtre
+            function afficherAnimChargement() {
+                
+            }
+
+            /* Gestionnaire d'événement "défilement" sur la fenêtre ou le document */
+
+        </script>
+    </body>
+</html>

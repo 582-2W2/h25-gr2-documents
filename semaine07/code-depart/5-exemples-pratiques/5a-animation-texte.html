@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- Ajustement de la taille du viewport-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5a - Animer du texte avec les principes d'animation</title>
+
+    <!-- Importation des polices de caractères-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=RocknRoll+One&display=swap" rel="stylesheet">
+
+    <style>
+        /* Normalisation supplémentaire
+        =================================================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styles de base et Mise en page pour les petits périphériques
+        =================================================================== */
+        html {
+            width: 100vw;
+            height: 100vh;
+            font-family: 'RocknRoll One', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            background-color: #D3DFDD;
+        }
+
+
+        section {
+            width: 100%;
+            height: 100%;
+
+            /*Conteneur flex*/
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            /*On cache le menu qui déborde à droite*/
+            overflow: hidden;
+        }
+
+
+        .lettre {
+            font-size: 4rem;
+        }
+
+
+
+        /* Ajustements pour les périphériques de plus grande taille +992px
+        ================================================================== */
+
+        @media screen and (min-width: 992px) {
+            .lettre {
+                /*On grossit la taille des lettres à 8rem*/
+                font-size: 8rem;
+            }
+        }
+
+ 
+        /* Animation CSS : animer-lettre
+        ====================================================================== */
+
+        @keyframes animer-lettre {
+            0% {
+                transform: translate(0vw, 20vh) rotate(45deg) scale(8);
+                opacity: 0;
+                animation-timing-function: cubic-bezier(.63, 0, 1, .17);
+            }
+
+            60% {
+                transform: translate(10vw, -5vh) rotate(0deg) scale(0.3);
+                opacity: 1;
+                animation-timing-function: cubic-bezier(.01, .47, .13, .98);
+            }
+
+            95% {
+                transform: translate(0, 0) rotate(0deg) scale(1.5);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(0deg) scale(1);
+            }
+        }
+
+        /*Affectation de l'animation aux lettres (classe lettre)*/
+        .lettre {
+            animation: animer-lettre 400ms both;
+        }
+
+        /*Après la première lettre, les autres lettres sont animées
+        avec un délai cumulatif additionnel de 1/4seconde*/
+
+        .lettre:nth-child(2) {
+            animation-delay: 0.25s;
+        }
+
+        .lettre:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+
+        .lettre:nth-child(4) {
+            animation-delay: 0.75s;
+        }
+
+        .lettre:nth-child(5) {
+            animation-delay: 1s;
+        }
+
+       .lettre:nth-child(6) {
+            animation-delay: 1.25s;
+        }
+
+        .lettre:nth-child(7) {
+            animation-delay: 1.5s;
+        }
+
+        .lettre:nth-child(8) {
+            animation-delay: 1.75s;
+        }
+
+        .lettre:nth-child(9) {
+            animation-delay: 2s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Titre -->
+    <section class="mot">
+            <div class="lettre">A</div>
+            <div class="lettre">N</div>
+            <div class="lettre">I</div>
+            <div class="lettre">M</div>
+            <div class="lettre">A</div>
+            <div class="lettre">T</div>
+            <div class="lettre">I</div>
+            <div class="lettre">O</div>
+            <div class="lettre">N</div>
+    </section>
+
+</body>
+
+</html>

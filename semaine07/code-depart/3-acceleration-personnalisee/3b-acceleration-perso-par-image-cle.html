@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3a - Accélération personnalisée avec effet de rebond</title>
+    <title>3b - Accélération personnalisée par image-clé</title>
 
     <style>
         /* Normalisation supplémentaire
@@ -21,41 +21,45 @@
             font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
         }
 
-
         section {
-            display: flex;
-            width: 60vmin;
+            width: 80vmin;
             height: 60vmin;
-            border: 5px solid #FF0088;
+            border: 0.5vmin solid #FF0088;
+            display: flex;
+            justify-content: center;
         }
 
 
         /* Images-clés de l'animation */
-        @keyframes battement {
-            from {
-                scale: 0.3;
+        @keyframes animer-carre {
+            from,
+            to {
+                translate: 0 0;
+                /*Acceleration personnalisée*/
+                
             }
 
-            to {
-                scale: 4;
+            45% {
+                translate: 0 54vmin;
+                /*Acceleration personnalisée*/
+              
             }
         }
 
         div {
-            margin: auto;
-            width: 15vmin;
-            height: 15vmin;
-            border-radius: 50%;
+            width: 5vmin;
+            height: 5vmin;
             background-color: #00AABB;
+
             /*Propriétés d'animation*/
-            animation: battement 2s infinite;
-            animation-timing-function: cubic-bezier(.1,2.2,.63,.46);
+            animation: animer-carre 2s infinite;
+
         }
     </style>
 </head>
 
 <body>
-    <h2>Effet de battement</h2>
+    <h2>Accélération personnalisée par image-clé</h2>
     <section>
         <div></div>
     </section>

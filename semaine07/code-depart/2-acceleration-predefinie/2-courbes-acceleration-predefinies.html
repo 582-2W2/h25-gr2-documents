@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 - Courbes d'accélération pré-définies (fonctions temporelles)</title>
+
+    <style>
+        /* Normalisation supplémentaire
+        =============================================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Styles de base
+        =============================================== */
+
+        html {
+            width: 100vw;
+            height: 100vh;
+            font-family: Verdana, Geneva, sans-serif;
+        }
+
+        body {
+            width: 100%;
+            font-family: helvetica, arial, serif;
+        }
+
+        section {
+            width: 96%;
+            margin: 1% auto;
+            border: 1px solid black;
+        }
+
+        h1 {
+            margin-left: 2%;
+            display: inline;
+            font-size: 2rem;
+            letter-spacing: 0rem;
+
+            /*Effet de transition*/
+            transition-property: letter-spacing, color;
+            transition-duration: 400ms;
+            transition-timing-function: linear;
+        }
+
+        h1:first-child:hover {
+            cursor: pointer;
+            letter-spacing: .2rem;
+            color: #00aabb;
+        }
+
+        .deplacement {
+            position: relative;
+            width: 100%;
+            margin: 1% 0;
+            background-color: #eee;
+        }
+
+        p {
+            font-size: 1.2em;
+            width: 100%;
+            display: table-cell;
+        }
+
+        img {
+            display: block;
+            float: left;
+            margin-right: 1rem;
+        }
+
+        .barre {
+            width: 10%;
+            background-color: #FF0088;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .agrandissement .barre{
+            margin:0.5rem 0;
+        }
+
+
+
+        /* Images-clés des animations*/
+        @keyframes deplacer-barre {
+            from {
+                left: 0%;
+            }
+
+            80%,
+            to {
+                left: 90%;
+            }
+        }
+
+        @keyframes agrandir-barre {
+            from {
+                width: 10%;
+            }
+
+            80%, to {
+                width: 100%;
+            }
+        }
+
+
+        .deplacement .barre {
+            /*Propriétés d'animation communes à ces barres*/
+            animation: deplacer-barre 4s infinite;
+        }
+
+
+        .agrandissement .barre{
+            /*Propriétés d'animation communes à ces barres*/
+            animation: agrandir-barre 4s infinite;
+        }
+
+
+
+        /* Effet d'accélération sur chacune des div*/
+        .barre.linear {
+            
+        }
+
+        .barre.ease {
+           
+        }
+
+        .barre.ease-in {
+           
+        }
+
+        .barre.ease-out {
+            
+        }
+
+        .barre.ease-in-out {
+           
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>Animation CSS</h1>
+    <h1>| Utilisation des courbes d'accélération pré-définies</h1>
+
+    <section>
+        <div class="deplacement">
+            <p><img src="images/linear.png">
+                <strong>linear : </strong>L'animation, entre les images-clés, est stable ou constante, sans décélération
+                ni accélération.
+            </p>
+            <div class="barre linear">linear</div>
+        </div>
+
+        <div class="deplacement">
+            <p><img src="images/ease.png">
+                <strong>ease (par défaut): </strong>L'animation, entre les images-clés, décélère légèrement au début,
+                puis accélère progressivement et termine lentement à l'approche de son état final.
+            </p>
+            <div class="barre ease">ease</div>
+        </div>
+
+        <div class="deplacement">
+            <p><img src="images/ease-in.png">
+                <strong>ease-in : </strong>L'animation, entre les images-clés, commence lentement, puis accélère
+                progressivement jusqu'à son état final.
+            </p>
+            <div class="barre ease-in">ease-in</div>
+        </div>
+
+        <div class="deplacement">
+            <p><img src="images/ease-out.png">
+                <strong>ease-out : </strong>L'animation, entre les images-clés, démarre rapidement puis ralentit
+                progressivement à l'approche de son état final.
+            </p>
+            <div class="barre ease-out">ease-out</div>
+        </div>
+
+        <div class="deplacement">
+            <p><img src="images/ease-in-out.png">
+                <strong>ease-in-out : </strong>L'animation, entre les images-clés, démarre lentement, accélère puis
+                ralentit à l'approche de son état final.
+            </p>
+            <div class="barre ease-in-out">ease-in-out</div>
+        </div>
+
+    </section>
+
+    <section class="agrandissement">
+        <div class="barre linear">linear</div>
+        <div class="barre ease">ease</div>
+        <div class="barre ease-in">ease-in</div>
+        <div class="barre ease-out">ease-out</div>
+        <div class="barre ease-in-out">ease-in-out</div>
+    </section>
+
+</body>
+
+</html>

@@ -68,9 +68,9 @@
             position: absolute;
             top: 0;
             right: 0;
-            width: 0%;
+            width: 0;
             background-color: #ffad40;
-            border-left: 0.1rem solid black;
+            border-left: .1rem solid black;
         }
 
         section {
@@ -85,7 +85,9 @@
 
         /* Transition sur la balise footer
         ============================================================*/
-        footer {}
+        footer {
+           
+        }
 
         footer:hover {
             background-color: #24aecd;
@@ -113,15 +115,7 @@
         }
 
         /*Animation de la feuille de sprites : animer-vol-poulet */
-        @keyframes vol-poulet {
-            from {
-                background-position: 0;
-            }
 
-            to {
-                background-position: -1664px;
-            }
-        }
 
         .vol-poulet {
             margin: 0 auto;
@@ -132,24 +126,17 @@
             width: 208px;
 
             /*Animation de la feuille de sprites du poulet pour 8 images...*/
-            animation: vol-poulet 1s infinite;
-            animation-timing-function: steps(8);
+   
         }
 
 
         /* Animation du titre - examiner d'abord les sélecteurs h1 et span
         ===================================================================*/
         @keyframes ecrire-titre {
-            from {
-                width: 100%;
-            }
-            to {
-                width: 0%;
-            }
+
         }
 
         @keyframes clignotement {
-
             from,
             to {
                 border-color: transparent
@@ -164,10 +151,9 @@
             /*Affecter les 2 animations
             Le nombre d'étapes pour l'écriture du texte doit correspondre au nombre de caractère dans la chaîne y compris les espaces
             */
-            animation: 
-                ecrire-titre 5s steps(29), 
-                clignotement 0.5s infinite steps(1);
+  
         }
+
     </style>
 
 </head>
@@ -181,8 +167,7 @@
             <div class="vol-poulet"></div>
         </div>
     </section>
-    <footer>Avec CSS, la fonction steps() nous permet d'animer par étapes successives (feuille de sprites, écriture de
-        texte, etc...)</footer>
+    <footer>Avec CSS, la fonction steps() nous permet d'animer par étapes successives (feuille de sprites, écriture de texte, etc...)</footer>
 
 </body>
 
