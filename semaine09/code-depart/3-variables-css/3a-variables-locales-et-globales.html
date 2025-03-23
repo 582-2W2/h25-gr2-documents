@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8" />
+	<title>03a - Variables CSS globales et locales</title>
+
+	<style type="text/css">
+		/*
+		* Normalisation supplémentaire
+		*======================================================== */
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		/*
+		* Propriétés personnalisées et/ou Variables CSS globales
+		*======================================================== */
+
+		/*
+		* Mise en page
+		*======================================================== */
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+			font-size: clamp(14px, 0.75rem + 0.5vw, 20px);
+		}
+
+		body {
+			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		header,
+		footer {
+			height: 15vh;
+			font-size: 2rem;
+			display: flex;
+			align-items: center;
+
+			/*Les couleurs*/
+			background-color: #f15b40;
+			color: #ffd372;
+
+			/*Le padding gauche*/
+			padding-left: 1rem;
+		}
+
+		main {
+			display: flex;
+			flex-direction: column;
+
+			flex: 1 0 auto;
+
+			/*Les couleurs*/
+			background-color: #ffd372;
+			color: #f15b40;
+		}
+
+		p {
+			/*Le padding sur les 4 côtés*/
+			padding: 1rem;
+		}
+
+		p:nth-child(2) {
+			/*On affecte une variable CSS qui n'existe pas...MAIS avec une valeur par défaut*/
+		}
+
+		section {
+			display: flex;
+			justify-content: center;
+			align-items: flex-end;
+			flex: 1 0 auto;
+			gap: 5vmin;
+		}
+
+		.ballon {
+			width: 10vmin;
+			height: 10vmin;
+			background: radial-gradient(circle at center, #ffd372, #f15b40);
+			border: 2px solid #f15b40;
+			border-radius: 50%;
+		}
+
+		@keyframes rebondir {
+			from {
+				transform: translateY(0vh);
+			}
+
+			to {
+				transform: translateY(-5vh);
+			}
+		}
+
+		.ballon {
+			animation: rebondir alternate infinite cubic-bezier(0.2, 0.65, 0.6, 1);
+		}
+
+		/*Affectation de valeurs différentes pour le rebond*/
+		.ballon.un {
+			animation-duration: 200ms;
+		}
+
+		.ballon.deux {
+			animation-duration: 300ms;
+		}
+
+		.ballon.trois {
+			animation-duration: 400ms;
+		}
+	</style>
+</head>
+
+<body>
+	<header>Propriétés CSS personnalisées OU Variables CSS</header>
+	<main>
+		<p>
+			<strong>Ce premier paragraphe devrait être sur fond jaune avec un texte de couleur orange... l'inverse de l'entête
+				et du pied
+				de page...</strong><br />
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis aliquam nulla. In in ultrices neque. Pellentesque
+			vel
+			tempor nibh. Cras vel dapibus orci. Curabitur fringilla dui in mi venenatis, tincidunt molestie felis eleifend.
+			Sed arcu
+			justo, tincidunt et scelerisque at, malesuada a orci. Quisque eu mauris nec urna lacinia efficitur eu vel sapien.
+			Morbi
+			viverra enim sit amet justo feugiat, at venenatis quam congue. Cras turpis mi, blandit iaculis justo a, ultricies
+			fermentum
+			erat.
+		</p>
+
+		<p>
+			<strong>Ce deuxième paragraphe devrait être aussi sur fond jaune MAIS avec un texte de couleur vert par défaut...
+				si la
+				variable CSS utilisée N'EST PAS déclarée...</strong><br />
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut quis aliquam nulla. In in ultrices neque. Pellentesque
+			vel
+			tempor nibh. Cras vel dapibus orci. Curabitur fringilla dui in mi venenatis, tincidunt molestie felis eleifend.
+			Sed arcu
+			justo, tincidunt et scelerisque at, malesuada a orci. Quisque eu mauris nec urna lacinia efficitur eu vel sapien.
+			Morbi
+			viverra enim sit amet justo feugiat, at venenatis quam congue. Cras turpis mi, blandit iaculis justo a, ultricies
+			fermentum
+			erat.
+		</p>
+
+		<section>
+			<div class="ballon un"></div>
+			<div class="ballon deux"></div>
+			<div class="ballon trois"></div>
+		</section>
+	</main>
+	<footer>Une façon d'optimiser son code CSS...pour faciliter les changements...</footer>
+</body>
+
+</html>
