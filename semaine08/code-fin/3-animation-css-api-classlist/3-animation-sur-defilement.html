@@ -248,11 +248,7 @@
 
 	<script>
 		// Écouter l'événement scroll dans le document
-		document.addEventListener("scroll", gererAffichage); 
-
-
-		// Fonction pour gérer l'affichage des différentes sections
-		function gererAffichage() {
+		document.addEventListener("scroll", () => {
 			let hauteurViewport = window.innerHeight;
 
 			// On cherche les boîtes cachées
@@ -263,14 +259,15 @@
 				let basBoite = uneBoite.getBoundingClientRect().bottom;
 
 				if(basBoite < hauteurViewport) {
-					
+					uneBoite.classList.add("active");
 				}
 				else {
-					
+					uneBoite.classList.remove("active");
 				}
 
 			}
-		}
+		}); 
+		
 
 	</script>
 </body>

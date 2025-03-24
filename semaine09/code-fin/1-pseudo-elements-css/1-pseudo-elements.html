@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>1 - Les pseudo-éléments : base et animation</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Importation des feuilles de style-->
+	<link rel="stylesheet" href="css/base.css" />
+	<link rel="stylesheet" href="css/pseudo.css" />
+</head>
+
+<body>
+	<header>
+		<h1>Les pseudo-éléments CSS - Base et animation</h1>
+		<nav>
+			<a href="#volet1" title="Définition de base d'un pseudo-élément"> BASE</a>
+			<a href="#volet2" title="Ajout de contenu stylisé"> AJOUT DE CONTENU </a>
+			<a href="#volet3" title="Gestion et stylisation d'un contenu vide"> CONTENU VIDE?</a>
+			<a href="#volet4" title="Effet de transition sur un pseudo-élément"> TRANSITION</a>
+			<a href="#volet5" title="Effet d'animation d'un pseudo-élément sur un clic"> ANIMATION</a>
+		</nav>
+	</header>
+
+	<main>
+		<section id="volet1">
+			<h2>Notions de base sur les pseudo-éléments</h2>
+			<p>
+				Un pseudo-élément CSS peut être utilisé pour styliser les parties spécifiées d'un élément HTML comme
+				tel.<br />Comme
+				dans cet exemple, il peut s'agir de styliser la première lettre d'un paragraphe (<code>::first-letter</code>),
+				ou encore
+				sa première ligne (<code>::first-line</code>).<br /><br />La syntaxe d'un pseudo-élément est la
+				suivante:
+<pre class="code">
+sélecteur::pseudo-élément {
+	propriété : valeur;
+}
+</pre>
+			</p>
+			<p class="paragraphe">
+				C'était le Lapin Blanc qui revenait en trottinant, et qui cherchait de tous côtés, d’un air inquiet, comme s’il
+				avait
+				perdu quelque chose ; Alice l’entendit qui marmottait : « La Duchesse ! La Duchesse ! Oh ! mes pauvres pattes ;
+				oh ! ma
+				robe et mes moustaches ! Elle me fera guillotiner aussi vrai que des furets sont des furets ! Où pourrais-je
+				bien les
+				avoir perdus ? » Alice devina tout de suite qu’il cherchait l’éventail et la paire de gants paille, et, comme
+				elle avait
+				bon cœur, elle se mit à les chercher aussi ; mais pas moyen de les trouver.
+			</p>
+			<p>
+				<em>
+					Depuis CSS3, on utilise deux fois le caractère deux-points « :: » pour préfixer les pseudo-éléments (afin de
+					pouvoir les différencier des pseudo-classes). Toutefois, la plupart des navigateurs prennent en charge les
+					pseudo-éléments pour lesquels le préfixe n'est formé que d'un seul « : ».
+				</em>
+			</p>
+		</section>
+
+		<section id="volet2">
+			<h2>Ajout de contenu dans un pseudo-élément avec la propriété: <code>content</code></h2>
+			<p>
+				Les pseudo-élements peuvent aussi être utilisés pour ajouter du contenu cosmétique avant (<code>::before</code>)
+				ou
+				après (<code>::after</code>) le contenu actuel d'un élément HTML. Pour cela, on doit utiliser et définir la
+				propriété
+				CSS:<code>content</code>. L'élément ajouté peut être du texte, un symbole graphique, un icône UTF8, une image,
+				etc. La
+				syntaxe de base sera alors la suivante:
+<pre class="code">
+sélecteur::pseudo-élément {
+	content : valeur;
+}
+</pre>
+			</p>
+
+			<p class="avant apres avant-theorie apres-theorie">Mettre un élément avant avec ::before et après avec ::after</p>
+			<p>Si tu as bien compris, avec les icônes UTF-8 met un émoticone avant le contenu de cet élément et 3 coeurs après
+			</p>
+			<p class="avant apres avant-pratique apres-pratique">Mettre un élément avant et après avec ::before et ::after</p>
+			<p>
+				<em>
+					Les pseudo-éléments générés par ::before et ::after sont contenus dans la boîte de mise en forme de
+					l'élément: <code>::before</code> comme étant le premier enfant de l'élément et <code>::after</code> comme le dernier
+					enfant de	cet élément. Par défaut, l'élément créé est de type en-ligne (inline). Aussi, les pseudo-élements ne sont pas
+					compris avec le sélecteur CSS universel (<code>*</code>). Ainsi, il faudra s'assurer de leur appliquer la même
+					normalisation que les autres éléments HTML: 
+				</em>
+<pre class="code">
+::before, ::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+</pre>
+			</p>
+		</section>
+
+		<section id="volet3">
+			<h2>Ajout et stylisation de contenu vide</h2>
+			<p>
+				Il est aussi possible d'ajouter un contenu, comme une boîte vide en utilisant (<code>::before ou ::after</code>)
+				et de
+				la formater. Pour cela, l'élément HTML doit avoir une position CSS définie autre que celle du flux régulier du
+				document
+				(<em>static</em>), habituellement: <code>position:relative</code>. Et, celle du pseudo-élément doit être en
+				absolu:
+				(<code>position: absolute</code>) afin d'être en mesure d'ajuster sa position à celle de l'élément parent. Le
+				contenu
+				vide est exprimé comme suit:
+<pre class="code">
+sélecteur::pseudo-élément {
+	content : "";
+}
+</pre>
+			</p>
+
+			<p class="vide vide1">Styliser un élément avec ::before ou ::after - Exemple 1</p>
+			<br />
+			<p class="vide vide2">Styliser un élément avec ::before ou ::after - Exemple 2</p>
+			<p>Si tu as bien compris, mets un ovale après le contenu de cet élément</p>
+			<p class="vide vide3">Styliser un élément avec ::before ou ::after - Exemple 3</p>
+			<p>
+				<em>En combinaison avec la position ABSOLUTE, on utilise une combinaison des propriétés
+					<code>top, right, bottom, left, width et height</code> pour définir la forme et l'emplacement final du
+					pseudo-élément.</em>
+			</p>
+		</section>
+
+		<section id="volet4">
+			<h2>Effet de transition sur des pseudo-éléments</h2>
+			<p>
+				Les pseudo-éléments sont très utilisés pour les effets de transition sur les boutons ou autres éléments
+				interactifs...Pour le premier bouton, on anime une ligne blanche au survol de gauche à droite en bas du
+				bouton...<br /><br />
+			</p>
+			<div class="bouton bouton1">ANIMATION D'UNE LIGNE AU SURVOL</div>
+			<br />
+			<p>
+				Si tu as bien compris, essaies d'animer une ligne blanche en haut du bouton qui part du milieu et qui s'étire
+				d'une
+				largeur de 0 à celle du bouton...
+			</p>
+			<br />
+			<div class="bouton bouton2">ANIMATION D'UNE LIGNE AU SURVOL</div>
+		</section>
+
+		<section id="volet5">
+			<h2>Effet d'animation sur des pseudo-éléments avec ou sans JavaScript</h2>
+			<p>Animation continue d'un pseudo-élément avec une classe CSS</p>
+			<p class="vide vide4">Animer un pseudo-élément avec CSS uniquement</p>
+			<br />
+			<p>
+				L'animation d'un pseudo-élément peut également être gérée sur des éléments interactifs avec JavaScript:
+				<code>elementHTML.classList.toggle("laClasse")</code>.
+			</p>
+			<div class="bouton bouton3">CLIQUE SUR MOI POUR ME SÉLECTIONNER OU NON</div>
+			<div class="bouton bouton3">CLIQUE SUR MOI POUR ME SÉLECTIONNER OU NON</div>
+			<div class="bouton bouton3">CLIQUE SUR MOI POUR ME SÉLECTIONNER OU NON</div>
+		</section>
+	</main>
+
+	<script>
+		/*
+		 *	Animer ou non un pseudo-élément au clic sur un élément HTML
+		 */
+		let lesBoutons = document.querySelectorAll(".bouton3");
+
+		for (let unBouton of lesBoutons) {
+		}
+
+		function ajusterElement(event) { }
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,218 @@
+/* Normalisation supplémentaire
+============================================================*/
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* Styles de base pour téléphone
+============================================================*/
+html {
+	height: 100vh;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	/*Ajustement de la taille des polices à la racine du document*/
+	font-size: clamp(12px, 0.5rem + 0.5vw, 18px);
+	scroll-behavior: smooth;
+	/*On cache le contenu qui déborde à l'horizontal*/
+	overflow-x: hidden;
+}
+
+body {
+	width: 100%;
+	min-height: 100vh;
+	color: #feffff;
+
+	/*Conteneur flex en colonne*/
+	display: flex;
+	flex-direction: column;
+}
+
+header {
+	width: 100%;
+	height: 30vh;
+	background-color: #02ae90;
+	border-bottom: 0.5rem solid whitesmoke;
+	text-align: center;
+
+	/*Position fixe en haut de la page*/
+	position: fixed;
+	/*En avant-plan*/
+	z-index: 100;
+
+	/*Conteneur flex en colonne*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h1 {
+	text-align: center;
+}
+
+h2 {
+	color: #ff7673;
+	padding: 0.5rem;
+}
+
+nav {
+	width: 100%;
+	/*Conteneur flex en colonne*/
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+a {
+	text-decoration: none;
+	font-size: 1.2rem;
+	font-weight: bold;
+	text-align: center;
+	color: whitesmoke;
+	padding: 0.4rem 0;
+	border-top: 1px solid whitesmoke;
+	transform-origin: center bottom;
+	transition: transform 500ms;
+}
+
+a:hover {
+	transform: scale(1.2);
+}
+
+section {
+	width: 100vw;
+	min-height: 100vh;
+	background-color: #ffd3a1;
+	padding-top: 30vh;
+
+	/*Conteneur flex en colonne*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+section:nth-child(even) {
+	background-color: #fbc58a;
+}
+
+section:nth-child(2) {
+	justify-content: flex-end;
+	align-content: space-around;
+}
+
+article {
+	width: 80vw;
+	height: 40vh;
+	border: 1px solid #02ae90;
+	box-shadow: 0 3px 6px 0 rgb(9, 87, 151, 0.22);
+}
+
+.article2 {
+	height: 70vh;
+	margin: 4rem 0;
+}
+
+p {
+	font-size: 1.2rem;
+	margin: 0 2rem;
+	padding-top: 0.5rem;
+	user-select: none;
+}
+
+.paragraphe {
+	font-size: 1.6rem;
+}
+
+.paragraphe::first-letter {
+	font-size: 2.5rem;
+	font-style: italic;
+	color: #ff7673;
+}
+
+code {
+	color: #ff7673;
+}
+
+div {
+	font-size: 2rem;
+	background-color: #02ae90;
+	color: whitesmoke;
+	padding: 0.5rem;
+	margin-top: 1rem;
+}
+
+.les-choix {
+	display: flex;
+	flex-direction: column;
+}
+
+.material-icons {
+	font-size: 4rem;
+	user-select: none;
+}
+
+ul {
+	width: 80%;
+	margin: 2rem 6rem;
+}
+
+li {
+	list-style-type: circle;
+	font-size: 1.2rem;
+	margin-bottom: 0.5rem;
+}
+
+li::marker {
+	color: #ff7673;
+}
+
+.affichage-reponse {
+	display: flex;
+	justify-content: space-between;
+}
+
+button {
+	border: 2px solid #ff7673;
+	color: #ff7673;
+	padding: 0 0.5rem;
+	cursor: pointer;
+}
+
+/* Styles pour les écrans plus larges
+============================================================*/
+@media screen and (min-width: 768px) {
+	header {
+		height: 15vh;
+	}
+
+	nav {
+		/*Devient un onteneur flex en rangée*/
+		flex-direction: row;
+	}
+
+	a {
+		padding-bottom: 0.6rem;
+		border-top: none;
+	}
+
+	section {
+		padding-top: 15vh;
+	}
+
+	section:not(:first-child) {
+		flex-direction: row;
+		justify-content: space-evenly;
+		align-items: flex-start;
+		flex-wrap: wrap;
+	}
+
+	article {
+		width: 45vw;
+		height: 35vh;
+		border: 1px solid #02ae90;
+		box-shadow: 0 3px 6px 0 rgb(9, 87, 151, 0.22);
+	}
+}

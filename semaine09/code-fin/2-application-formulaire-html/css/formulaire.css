@@ -1,0 +1,112 @@
+/* Révisions de quelques éléments de formulaire
+principalement les éléments de type <input> et <label>
+============================================================*/
+
+/* VOLET 2 - RÉVISION
+============================================================*/
+
+input[type="text"] {
+	border: 2px solid #ff7673;
+	color: #ff7673;
+}
+
+input[type="text"]:focus {
+	opacity: 0.7;
+}
+
+.bouton-burger>i {
+	/*Effet de transition sur la rotation*/
+	transition: transform 1s;
+}
+
+#cc-bouton-burger:checked+.bouton-burger>i {
+	transform: rotate(-90deg);
+}
+
+#cc-bouton-burger {
+	display: none;
+}
+
+/* VOLET 3 - BOUTON RADIO STYLISÉ
+============================================================*/
+.le-choix {
+	display: inline;
+}
+
+/*Le <input> est retiré de l'affichage*/
+.choix>input {
+	display: none;
+}
+
+/*On gère la position de la légende avec la gestion d'un pseudo-élément*/
+.choix>label {
+	margin-left: 2rem;
+	cursor: pointer;
+}
+
+.choix>label {
+	/*
+    border-radius: 50%;
+    background-color: whitesmoke;
+    transition: background-color 0.5s, border 0.5s;
+  */
+}
+
+/*Effet de survol*/
+.choix>label:hover {
+	background-color: #ffd3a1;
+}
+
+/*Bouton radio sélectionné*/
+.choix>input:checked {
+	/*
+    background-color: whitesmoke;
+    border: 7px solid #ff7673;
+  */
+}
+
+/* VOLET 4 - PRATIQUE
+============================================================*/
+.pratique {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/*La case à cocher est invisible*/
+#cc-couleur-body {
+	display: none;
+}
+
+label.choix-couleur {
+	/*On gère la position*/
+	width: 8vmin;
+	height: 3vmin;
+	border-radius: 1.5vmin;
+	background-color: #ffd3a1;
+	margin: 0 1vmin;
+}
+
+label.choix-couleur {
+	width: 4vmin;
+	height: 4vmin;
+	top: -0.5vmin;
+	left: 0;
+	border-radius: 2vmin;
+	background-color: #ff7673;
+	box-shadow: 0px 2px 6px rgb(102 102 102 / 50%);
+	transition: left 250ms;
+}
+
+/*Aspect quand la case est cochée*/
+
+/*Pseudo-élément sur le body*/
+body {
+	position: relative;
+}
+
+body {
+	/*À compléter*/
+	transition: background-color 400ms;
+}

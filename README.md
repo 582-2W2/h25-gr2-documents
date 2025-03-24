@@ -7,10 +7,10 @@
 > :construction: = en cours
 > :heavy_check_mark: = complété
 
-### Semaine 9 :checkered_flag:
+### Semaine 9 :construction:
 >CSS : Les pseudo-éléments. Applications au formatage CSS des éléments de formulaire. CSS : Les propriétés personnalisées, ou variables CSS.
 
-### Semaine 8 :construction:
+### Semaine 8 :heavy_check_mark:
 >JavaScript : l'API ClassList du DOM (accès et manipulation de la liste des classes CSS associées avec les éléments HTML).
 
 ### Semaine 7 :heavy_check_mark:

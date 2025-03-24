@@ -293,7 +293,24 @@
 		CSS sur les rectangles animés.
 	-->
 	<script>
-		
+		// Tous les liens de navigation
+		const liens = document.querySelectorAll("nav.menu > a");
+		// Tous les rectangles
+		const rectangles = document.querySelectorAll("section > div");
+
+		// Le premier lien
+		liens[0].addEventListener("click", () => {
+			for(const rectangle of rectangles) {
+				rectangle.classList.replace("anim-rectangle-1", "anim-rectangle-2");
+			}
+		})
+
+		// Le deuxième lien
+		liens[1].addEventListener("click", () => {
+			for(const rectangle of rectangles) {
+				rectangle.classList.replace("anim-rectangle-2", "anim-rectangle-1");
+			}
+		})
 	</script>
 
 </body>

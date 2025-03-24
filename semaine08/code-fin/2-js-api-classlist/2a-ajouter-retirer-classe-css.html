@@ -238,6 +238,7 @@
 		const menuAjouter = document.querySelector("nav.menu a:first-child");
 		// Gérer l'événement "clic"
 		menuAjouter.addEventListener("click", ajouterClasse);
+
 		function ajouterClasse() {
 			// Parcourir les rectangles un par un...
 			for (const rectangle of lesRectangles) {
@@ -247,10 +248,24 @@
 		}
 
 		// Faites la même chose pour retirer une classe
-
+		const menuRetirer = document.querySelector("nav.menu a:nth-child(2)");
 
 		// Faites la même chose pour faire "basculer" une classe
+		menuRetirer.addEventListener("click", function() {
+			for(const rectangle of lesRectangles) {
+				rectangle.classList.remove("anim-rectangle");
+			}
+		});
 
+		// Faites la même chose pour retirer une classe
+		const menuBasculer = document.querySelector("nav.menu a:last-child");
+
+		// Faites la même chose pour faire "basculer" une classe
+		menuBasculer.addEventListener("click", () => {
+			for(const rectangle of lesRectangles) {
+				rectangle.classList.toggle("anim-rectangle");
+			}
+		});
 		
 	</script>
 

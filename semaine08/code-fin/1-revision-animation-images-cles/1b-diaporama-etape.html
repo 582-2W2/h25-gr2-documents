@@ -33,7 +33,7 @@
 			background-color: #859cc6;
 			box-shadow: 0px 15px 10px -5px #777;
 			background-image: url("images/tousLesImagesDuDiaporama.jpg");
-			background-position: left 0px;
+			background-position: 0;
 		}
 
 
@@ -41,9 +41,13 @@
     =============================================== */
 
 		@keyframes deplacement-image {
-			from {}
+			from {
+				background-position: 0;
+			}
 
-			to {}
+			to {
+				background-position: -2400px;
+			}
 		}
 
 		/* Affectation de l'animations CSS
@@ -52,11 +56,13 @@
 		.diaporama {
 			cursor: pointer;
 			/*Animation*/
-
+			animation: deplacement-image 10s steps(4) infinite;
 		}
 
 
-		.diaporama:hover {}
+		.diaporama:hover {
+			animation-play-state: paused;
+		}
 	</style>
 </head>
 
