@@ -99,7 +99,7 @@ p {
 	font-size: 1.2rem;
 	margin: 0 4rem;
 	padding-top: 1rem;
-	user-select: none;
+	/* user-select: none; */
 }
 
 section>p:last-child {
