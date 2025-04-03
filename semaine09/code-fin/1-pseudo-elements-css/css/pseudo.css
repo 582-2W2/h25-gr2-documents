@@ -178,21 +178,10 @@ p::first-line {
 .bouton3 {
 	padding-left: 3rem;
 	position: relative;
+	user-select: none;
 }
 
-.bouton3::before {
-	position: absolute;
-	content: "";
-	width: 1rem;
-	height: 60%;
-	border: 5px solid white;
-	border-top: none;
-	border-left: none;
-	left: 1rem;
-	rotate: 30deg;
-}
-
-@keyframes anim-crochet {
+@keyframes tourner-crochet {
 	from {
 		transform: rotate(0deg);
 	}
@@ -206,7 +195,7 @@ p::first-line {
 	background: #ff7673;
 }
 
-.bouton3.est-clique {
+.bouton3.est-clique::before {
 	content: "";
 	position: absolute;
 	height: 60%;
@@ -217,8 +206,11 @@ p::first-line {
 	border-color: whitesmoke;
 	border-style: solid;
 	/* border-width : haut | droite | bas | gauche */
+	border-width: 0 5px 5px 0; /* TRBL */
 
 	/*On met son point de transformation en bas à droite*/
+	transform-origin: bottom right;
 
 	/*Animation*/
+	animation: tourner-crochet 250ms forwards;
 }

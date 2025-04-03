@@ -18,6 +18,15 @@
 		/*
 		* Propriétés personnalisées et/ou Variables CSS globales
 		*======================================================== */
+		/* Exemples de "variables" GLOBALES */
+		:root {
+			/* Déclarer les couleurs utilisées dans la page */
+			--couleur-sombre: #8b0090;
+			--couleur-claire: #ffadf1;
+
+			/* Déclarer les tailles */
+			--espacement: 1rem;
+		}
 
 		/*
 		* Mise en page
@@ -44,11 +53,11 @@
 			align-items: center;
 
 			/*Les couleurs*/
-			background-color: #f15b40;
-			color: #ffd372;
+			background-color: var(--couleur-sombre);
+			color: var(--couleur-claire);
 
 			/*Le padding gauche*/
-			padding-left: 1rem;
+			padding-left: var(--espacement);
 		}
 
 		main {
@@ -58,17 +67,19 @@
 			flex: 1 0 auto;
 
 			/*Les couleurs*/
-			background-color: #ffd372;
-			color: #f15b40;
+			background-color: var(--couleur-claire);
+			color: var(--couleur-sombre);
 		}
 
 		p {
 			/*Le padding sur les 4 côtés*/
-			padding: 1rem;
+			padding: var(--espacement);
 		}
 
 		p:nth-child(2) {
 			/*On affecte une variable CSS qui n'existe pas...MAIS avec une valeur par défaut*/
+			color: var(--couleur-verte, #090);
+		
 		}
 
 		section {
@@ -82,8 +93,8 @@
 		.ballon {
 			width: 10vmin;
 			height: 10vmin;
-			background: radial-gradient(circle at center, #ffd372, #f15b40);
-			border: 2px solid #f15b40;
+			background: radial-gradient(circle at center, var(--couleur-claire), var(--couleur-sombre));
+			border: 2px solid var(--couleur-sombre);
 			border-radius: 50%;
 		}
 
@@ -93,24 +104,33 @@
 			}
 
 			to {
-				transform: translateY(-5vh);
+				transform: translateY(var(--hauteur-saut));
 			}
 		}
 
 		.ballon {
+			--hauteur-saut: -50vh;
 			animation: rebondir alternate infinite cubic-bezier(0.2, 0.65, 0.6, 1);
 		}
 
 		/*Affectation de valeurs différentes pour le rebond*/
 		.ballon.un {
+			--hauteur-saut: -5vh;
 			animation-duration: 200ms;
 		}
 
 		.ballon.deux {
+			/* --hauteur-saut: -10vh; */
 			animation-duration: 300ms;
 		}
 
 		.ballon.trois {
+			--hauteur-saut: -15vh;
+			animation-duration: 400ms;
+		}
+
+		.ballon.quatre {
+			--hauteur-saut: -100vh;
 			animation-duration: 400ms;
 		}
 	</style>
@@ -153,6 +173,7 @@
 			<div class="ballon un"></div>
 			<div class="ballon deux"></div>
 			<div class="ballon trois"></div>
+			<div class="ballon quatre"></div>
 		</section>
 	</main>
 	<footer>Une façon d'optimiser son code CSS...pour faciliter les changements...</footer>

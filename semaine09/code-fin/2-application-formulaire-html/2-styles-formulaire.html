@@ -54,7 +54,7 @@
 				<p>Un champs de texte</p>
 				<div>
 					<label for="prenom">Ton prénom? :</label>
-					<input type="text" id="prenom" autocomplete="off" />
+					<input maxlength="10" type="text" id="prenom" autocomplete="off" />
 				</div>
 				<br />
 				<p>
@@ -129,16 +129,16 @@
 			<article class="article2">
 				<div class="les-choix">
 					<div class="choix">
-						<input type="radio" id="reponse1" name="reponse" />
+						<input type="radio" id="reponse1" name="reponse" value="Pepperoni" />
 						<label for="reponse1">RÉPONSE 1</label>
 					</div>
 					<div class="choix">
-						<input type="radio" id="reponse2" name="reponse" />
+						<input type="radio" id="reponse2" name="reponse" value="Champignons" />
 						<label for="reponse2">RÉPONSE 2</label>
 					</div>
 
 					<div class="choix">
-						<input type="radio" id="reponse3" name="reponse" />
+						<input type="radio" id="reponse3" name="reponse" value="Végétarienne" />
 						<label for="reponse3">RÉPONSE 3</label>
 					</div>
 				</div>
@@ -160,19 +160,24 @@
 	</main>
 
 	<script>
-		/* VOLET-3
-				Détecter le clic d'un bouton radio et afficher la réponse correspondante
+		/* 
+			VOLET-3
+			Détecter le clic d'un bouton radio et afficher 
+			la réponse correspondante.
 		*/
 
-		let lesChoix = document.querySelectorAll(".choix > input");
+		document.querySelectorAll(".choix > input").forEach(
+			radio => radio.addEventListener("click", 
+				evt => document.querySelector("#affichage-choix").value	= evt.target.value
+			)
+		);
 
-		for (let unChoix of lesChoix) {
-			unChoix.addEventListener("click", afficherReponse);
-		}
 
-		function afficherReponse(event) {
-			let champChoix;
-		}
+
+
+
+
+
 
 		/* VOLET-4
 				Gérer le pseudo élément de la balise <body> avec la case a cocher

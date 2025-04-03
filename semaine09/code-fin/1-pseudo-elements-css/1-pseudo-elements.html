@@ -179,12 +179,22 @@ sélecteur::pseudo-élément {
 		/*
 		 *	Animer ou non un pseudo-élément au clic sur un élément HTML
 		 */
-		let lesBoutons = document.querySelectorAll(".bouton3");
+		// let lesBoutons = document.querySelectorAll(".bouton3");
 
-		for (let unBouton of lesBoutons) {
-		}
+		// for (let unBouton of lesBoutons) {
+		// 	unBouton.addEventListener("click", ajusterElement);
+		// }
 
-		function ajusterElement(event) { }
+		// function ajusterElement(evt) {
+		// 	evt.target.classList.toggle("est-clique");
+			
+		// }
+
+		document.querySelectorAll(".bouton3").forEach(
+			btn => btn.addEventListener("click", 
+				evt => evt.target.classList.toggle("est-clique")
+			)
+		)
 	</script>
 </body>
 
