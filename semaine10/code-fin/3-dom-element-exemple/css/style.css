@@ -1,0 +1,130 @@
+/* Normalisation supplémentaire
+============================================================*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mise en page
+============================================================*/
+html{
+    width: 100vw;
+    height: 100vh;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 0.875rem; 
+}
+
+body {
+    width: 100%;
+    height: 100%;
+
+    background-color: #1558e4;
+    color: whitesmoke;
+
+    /*Conteneur flex en colonne*/
+    display: flex;
+    flex-direction: column;
+}
+
+main{
+    /*Comme item flex, il prend toute la place disponible en hauteur*/
+    flex-grow: 1;  
+}
+
+header,
+footer {
+    min-height: 10vh;
+    text-align: center;
+
+    /*Conteneur flex en rangée*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /*Ne peut rétrécir comme item flex*/
+    flex: 0 0 auto;
+}
+
+
+header {
+    border-bottom: 1px solid whitesmoke;
+}
+
+footer {
+    border-top: 1px solid whitesmoke;
+}
+
+.titre-quiz {
+    width: 100vw;
+    font-size: 2rem;
+    text-align: center;
+
+    /*Conteneur flex en rangée avec ses éléments enfants centrés*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes animLettre {
+    from {
+        opacity: 1;
+        transform: rotate(30deg)
+    }
+
+    to {
+        opacity: 1;
+        transform: rotate(-30deg)
+    }
+
+}
+
+.lettre {
+    font-family: 'Train One', cursive;
+    font-size: 3.5rem;
+    padding: 0 1rem;
+    opacity: 0;
+    animation: animLettre 2s infinite alternate;
+}
+
+.bouton {
+    line-height: 200%;
+    padding: 0 0.5rem;
+    font-size: 0.6rem;
+    border: 0;
+    text-align: center;
+    background-color: whitesmoke;
+    color: #1558e4;
+    text-shadow: 1px 1px 1px #000;
+    cursor: pointer;
+
+    transition:transform 400ms;
+}
+
+.bouton:hover{
+    transform:scale(1.1);
+}
+
+
+/* Ajustement pour les écrans de taille moyenne et plus grande
+=============================================================== */
+@media screen and (min-width: 768px) {
+
+    body {
+        font-size: 1rem;
+    }
+
+    .titre-quiz {
+        font-size: 5rem;
+    }
+
+    .lettre {
+        font-size: 10rem;
+    }
+
+   .bouton {
+        padding: 0 1rem;
+        font-size: 1.2rem;
+    }
+}

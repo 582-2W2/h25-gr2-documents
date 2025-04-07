@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8" />
+	<title>7 - append/remove - target</title>
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Importation des styles-->
+	<link rel="stylesheet" href="css/style.css" />
+
+	<!-- Ici on s'amuse et on change les couleurs #f6ecd9 #79ad81 #71b3e7 #687f8f-->
+</head>
+
+<body>
+	<header>
+		<h1>Création dynamique d'éléments HTML</h1>
+		<h1>Enlever des éléments cliqués avec "target"</h1>
+	</header>
+
+	<section class="conteneurCarres"></section>
+
+	<footer>
+		<p>Cliquer sur les carrés pour les enlever de l'affichage</p>
+	</footer>
+
+	<!-- Script Javascript -->
+	<script>
+		//La section dans laquelle on va mettre les divisions...
+		let laSection = document.querySelector("section");
+
+		//Mettre 40 divisions
+		let elmDiv;
+		for (let i = 0; i < 40; i++) {
+			//Créer une division
+			elmDiv = document.createElement("div");
+
+			//Lui attribuer un numéro
+			elmDiv.innerHTML = i;
+
+			//Lui ajouter une classe CSS par  programmation
+			elmDiv.classList.add("carre");
+
+			//L'ajouter dans la section
+			laSection.append(elmDiv);
+
+			//Lui attribuer un gestionnaire d'événement pour sa destruction
+			elmDiv.addEventListener("click", evt => evt.target.remove());
+		}
+	</script>
+</body>
+
+</html>

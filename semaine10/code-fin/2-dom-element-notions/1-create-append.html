@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8" />
+	<title>1 - createElement/append</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Importation des styles-->
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+	<header>
+		<h1>Création dynamique d'éléments HTML</h1>
+	</header>
+
+	<section></section>
+
+	<footer>
+		<p>La division a été créée avec <i>document.createElement()</i> et ajoutée DANS la section avec
+			<i>elementHTML.append()</i>.</p>
+	</footer>
+
+	<script>
+		//Création d'un élément HTML (div)
+		const elt = document.createElement("div");
+
+		//Ajout d'une classe CSS: rectangle
+		elt.classList.add("rectangle");
+
+		//Ajout d'un contenu textuel
+		elt.innerHTML = "Comme je descendais des fleuves impassibles...";
+
+		//Placer l'élément dans la section...
+		console.log("Élément créé : ", elt);
+		
+		document.querySelector("section").append(elt);
+
+	</script>
+</body>
+
+</html>

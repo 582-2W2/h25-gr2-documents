@@ -7,7 +7,7 @@
 > :construction: = en cours
 > :heavy_check_mark: = complété
 
-### Semaine 10 :checkered_flag:
+### Semaine 10 :construction:
 >JS : Interface Element du DOM. Manipulation (création, ajout, retrait) des éléments HTML du document avec JavaScript.
 
 ### Semaine 9 :construction:

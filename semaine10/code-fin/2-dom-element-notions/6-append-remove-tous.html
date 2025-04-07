@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8" />
+	<title>6 - append/remove - TOUS</title>
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Importation des styles-->
+	<link rel="stylesheet" href="css/style.css" />
+</head>
+
+<body>
+	<header>
+		<h1>Création dynamique d'éléments HTML et retrait de tous les éléments</h1>
+	</header>
+
+	<section class="conteneurCarres"></section>
+
+	<footer>
+		<div class="bouton">Retirer TOUTES les divisions</div>
+	</footer>
+
+	<script>
+		//La section dans laquelle on va mettre la ou les divisions...
+		let laSection = document.querySelector("section");
+
+		//Écouteur sur le bouton
+		document.querySelector(".bouton").addEventListener("click", retirerLesDivs);
+
+		//Créer et insérer (placer) 20 éléments 'div'
+		let elmDiv;
+		for (let i = 0; i < 20; i++) {
+			//Créer une division
+			elmDiv = document.createElement("div");
+			//Lui attribuer un numéro
+			elmDiv.innerText = i + 1;
+
+			//Lui ajouter une classe CSS par programmation
+			elmDiv.classList.add("carre");
+
+			//La placer dans la section
+			laSection.append(elmDiv);
+		}
+
+		// Fonction pour retirer tous les éléments dans la section.
+		function retirerLesDivs(event) {
+			// if(laSection.firstElementChild) {
+			// 	for(let i = 0; i<20; i++) {
+			// 		laSection.firstElementChild.remove();
+			// 	}
+			// }
+			
+			// OU, trivialement :
+			laSection.innerHTML = "";
+		}
+	</script>
+</body>
+
+</html>
