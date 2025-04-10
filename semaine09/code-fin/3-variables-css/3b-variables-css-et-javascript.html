@@ -29,6 +29,11 @@
 			--espacement: 1rem;
 		}
 
+		.nuit {
+			--premiere-couleur: #030060;
+			--deuxieme-couleur: #aeaff0;
+		}
+
 		/*
 		* Mise en page
 		*======================================================== */
@@ -213,22 +218,30 @@
 	<footer>Une façon d'optimiser son code CSS...pour faciliter les changements...</footer>
 
 	<script>
-		//La case à cocher pour le choix du thème
-		let caseACocherTheme = document.querySelector("#cc-couleur-theme");
-		caseACocherTheme.addEventListener("click", changerTheme);
-		/**
-		 * Fonction pour changer le thème de la page Web si la case à cocher est cochée
-		 */
-		function changerTheme(event) {
-			//Récupérer le sélecteur :root
-			let selecteurRoot;
+		// //La case à cocher pour le choix du thème
+		// let caseACocherTheme = document.querySelector("#cc-couleur-theme");
+		// caseACocherTheme.addEventListener("click", changerTheme);
+		// /**
+		//  * Fonction pour changer le thème de la page Web si la case à cocher est cochée
+		//  */
+		// function changerTheme() {
+		// 	//Récupérer le sélecteur :root
+		// 	let selecteurRoot = document.querySelector(":root");
 
-			if (caseACocherTheme.checked == true) {
-				//On change les couleurs pour les sombres: #2b3c72 et #79addf
-			} else {
-				//On remet les couleurs du jour : #f15b40 et #ffd372
-			}
-		}
+		// 	if (caseACocherTheme.checked == true) {
+		// 		//On change les couleurs pour les sombres: #2b3c72 et #79addf
+		// 		selecteurRoot.style.setProperty("--premiere-couleur"," #2b3c72");
+		// 		selecteurRoot.style.setProperty("--deuxieme-couleur"," #79addf");
+		// 	} else {
+		// 		//On remet les couleurs du jour : #f15b40 et #ffd372
+		// 		selecteurRoot.style.setProperty("--premiere-couleur"," #f15b40");
+		// 		selecteurRoot.style.setProperty("--deuxieme-couleur"," #ffd372");
+		// 	}
+		// }
+
+		document.querySelector("#cc-couleur-theme").addEventListener("click", 
+			() => document.body.classList.toggle("nuit")
+		)
 	</script>
 </body>
 

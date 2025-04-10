@@ -7,10 +7,10 @@
 > :construction: = en cours
 > :heavy_check_mark: = complété
 
-### Semaine 10 :construction:
+### Semaine 10 :heavy_check_mark:
 >JS : Interface Element du DOM. Manipulation (création, ajout, retrait) des éléments HTML du document avec JavaScript.
 
-### Semaine 9 :construction:
+### Semaine 9 :heavy_check_mark:
 >CSS : Les pseudo-éléments. Applications au formatage CSS des éléments de formulaire. CSS : Les propriétés personnalisées, ou variables CSS.
 
 ### Semaine 8 :heavy_check_mark:
