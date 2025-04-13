@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8" />
+	<title>4 - Déplacer l'étoile</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Importation des feuilles de style-->
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/evenement-souris.css" />
+</head>
+
+<body>
+	<section>
+		<div class="etoile-animee"></div>
+	</section>
+
+	<footer>
+		L'étoile dans le ciel (<em>balise &lt;section&gt;</em>) suit la position du dispositif de pointage
+		(<em>souris</em>)...
+		<br />Remarquer ici que le coin supérieur gauche de la balise <code>&lt;section&gt;</code> correspond à celle de la
+		page HTML
+		(<em>balise &lt;body&gt;</em>).
+	</footer>
+
+	<script>
+		let leCiel = document.querySelector("section");
+
+		// L'étoile animée
+
+		// Écouteur sur la scène pour l'événement mousemove
+
+		/**
+		 * Fonction permettant de déplacer l'étoile animée selon le déplacement
+		 * du pointeur à l'écran
+		 *
+		 * @param {object Event} evt : objet Event passé au gestionnaire 
+		 * d'événement (informations sur l'événement MouseEvent distribué)
+		 */
+		function deplacerEtoile(evt) {
+
+		}
+	</script>
+</body>
+
+</html>

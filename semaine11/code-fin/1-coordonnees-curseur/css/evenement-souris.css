@@ -1,0 +1,68 @@
+/* CSS pour les fichiers de théorie sur l'API MouseEvent
+==================================================================== */
+
+/* Pour tous les fichiers
+==================================================== */
+section {
+	/*Positionnement*/
+	position: relative;
+}
+
+/* L'étoile fixe - Fichier 01
+==================================================== */
+.etoile {
+	font-size: 3rem;
+	color: whitesmoke;
+	/*Pour tester
+    border: 1px solid aqua;*/
+
+	/*Positions*/
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	/*Transitions pour animer le déplacement*/
+	transition: left 1s ease-out, top 1s ease-out;
+}
+
+/* L'étoile animée - Fichiers 02 et 03
+==================================================== */
+
+@keyframes etoile-animee {
+	from {
+		transform: scale(0.3) rotate(0deg);
+		opacity: 0.1;
+	}
+
+	60% {
+		transform: scale(3) rotate(180deg);
+		opacity: 1;
+	}
+
+	to {
+		transform: scale(0.3) rotate(360deg);
+		opacity: 0.1;
+	}
+}
+
+.etoile-animee {
+	color: whitesmoke;
+
+	/*Positions*/
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	/*Animation*/
+	animation: etoile-animee 1s infinite;
+}
+
+.etoile-animee::after {
+	content: "\2605";
+}
+
+/* La section plus petite VS page HTML - Fichier 03
+==================================================== */
+.petite {
+	width: 70vw;
+}

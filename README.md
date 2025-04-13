@@ -7,6 +7,9 @@
 > :construction: = en cours
 > :heavy_check_mark: = complété
 
+### Semaine 11 :checkered_flag:
+>JS : Interface MouseEvent du DOM. Application à la gestion d'un curseur personnalisé en CSS et JavaScript.
+
 ### Semaine 10 :heavy_check_mark:
 >JS : Interface Element du DOM. Manipulation (création, ajout, retrait) des éléments HTML du document avec JavaScript.
 

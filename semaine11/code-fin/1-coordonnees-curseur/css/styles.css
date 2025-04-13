@@ -1,0 +1,45 @@
+/* Normalisation supplémentaire
+==================================================== */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+
+/* Mise en page
+==================================================== */
+html {
+	font-size: 87.5%;
+}
+
+body {
+	width: 100vw;
+	height: 100vh;
+	background-color: black;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 1.4rem;
+	text-align: center;
+
+	/*Conteneur flex en colonnes*/
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+header,
+footer {
+	color: #a4bed2;
+	padding: 1%;
+}
+
+section {
+	background-color: #003366;
+	width: 100%;
+	/*Étirement comme item-flex*/
+	flex: 1 0 auto;
+
+	overflow: hidden;
+	cursor: pointer;
+}
