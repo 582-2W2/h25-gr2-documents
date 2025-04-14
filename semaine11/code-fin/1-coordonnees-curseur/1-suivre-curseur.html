@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8" />
+	<title>1 - Déplacer à l'endroit du clic</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Importation des feuilles de style-->
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/evenement-souris.css" />
+</head>
+
+<body>
+	<section>
+		<!-- Utilisation d'une entité de caractères Unicode: https://graphemica.com -->
+		<div class="etoile">&#x1F31F;</div>
+	</section>
+
+	<footer>
+		ÉTOILE FILANTE... Faites un clic dans le ciel (<em>balise &lt;section&gt;</em>)... 
+		pour déplacer l'étoile...Propriétés animées avec transition CSS: <code>top</code> 
+		et <code>left</code>
+	</footer>
+
+	<script>
+		//leCiel qui représente l'élément "section" de la page HTML
+		const ciel = document.querySelector("section");
+
+		//Écouteur sur l'événement de souris "mouseup"
+		ciel.addEventListener("mouseup", deplacerEtoile);
+
+		/**
+		 * Fonction permettant de déplacer l'étoile à l'endroit du
+		 * relâchement du pointeur dans l'écran
+		 *
+		 * @param {object Event} event objet Event passé au gestionnaire d'événement (informations sur l'événement MouseEvent distribué)
+		 */
+		function deplacerEtoile(evenement) {
+			// Saisir l'étoile qui est l'élément <div> de la section (leCiel)
+			const etoile = document.querySelector(".etoile");
+			
+			// Coordonnées X et Y de l'endroit indiqué par le pointeur
+			console.log("Information sur l'événement qui vient de survenir : ", evenement);
+			const posX = evenement.clientX;
+			const posY = evenement.clientY;
+
+			// Déplacer l'étoile à l'endroit du mouseup dans le ciel...
+			// Méthode 1 : changer les propriétés CSS top et left de l'étoile
+			// etoile.style.top = posY + "px";
+			// etoile.style.left = posX + "px";
+
+			// Méthode 2 : changer la propriété CSS translate de l'étoile
+			// etoile.style.translate = posX + "px " + posY + "px";
+			// Réécrire la valeur de droite avec "l'interpolation" au lieu de la "concaténation"
+			// Utiliser les "littéraux de gabarit" (template literals)
+			etoile.style.translate = `${posX}px ${posY}px`;
+		}
+	</script>
+</body>
+
+</html>

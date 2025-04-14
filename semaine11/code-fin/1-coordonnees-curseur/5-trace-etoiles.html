@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8" />
+	<title>5 - Trace d'étoiles</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Importation des feuilles de style-->
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/evenement-souris.css" />
+</head>
+
+<body>
+	<section></section>
+
+	<footer>Écrire avec des étoiles...un double-clic les enlève...</footer>
+
+	<script>
+		let ciel = document.querySelector("section");
+		let etoile = document.querySelector(".etoile-animee");
+
+		
+		ciel.addEventListener("mousedown", gererEcriture);
+		ciel.addEventListener("mouseup", gererEcriture);
+
+		
+		ciel.addEventListener("dblclick", ()=>ciel.innerHTML="");
+
+		function gererEcriture(evt) {
+			if(evt.type == "mousedown") {
+				ciel.addEventListener("mousemove", mettreEtoile);
+			}
+			else if(evt.type == "mouseup") {
+				ciel.removeEventListener("mousemove", mettreEtoile);
+			}
+		}
+
+
+		/**
+		 * Fonction permettant de déplacer l'étoile animée selon le déplacement
+		 * de la souris à l'écran
+		 *
+		 * @param {object Event} evt : objet Event passé au gestionnaire d'événement 
+		 * (informations sur l'événement MouseEvent distribué)
+		 */
+		function mettreEtoile(evt) {
+			let etoileAnim = document.createElement("div");
+			etoileAnim.classList.add("etoile-animee");
+			//L'étoile suit les coordonnées de la souris
+			etoileAnim.style.left = evt.clientX + "px";
+			etoileAnim.style.top = evt.clientY + "px";
+			ciel.append(etoileAnim);
+		}
+	</script>
+</body>
+
+</html>

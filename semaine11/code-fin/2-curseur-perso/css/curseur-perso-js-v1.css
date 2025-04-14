@@ -1,0 +1,57 @@
+/* Aspect du curseur par défaut
+==================================================================== */
+body {
+	/*On enlève l'affichage du curseur par défaut*/
+	cursor: none;
+}
+
+img {
+	/*On met le curseur de type pointer au survol de l'image*/
+	cursor: pointer;
+}
+
+/*VOIR: https://css-tricks.com/a-complete-guide-to-custom-properties/*/
+/* CSS pour l'aspect visuel et le contrôle d'un curseur personnalisé
+==================================================================== */
+
+:root {}
+
+.curseur {
+	height: 2.4rem;
+	width: 2.4rem;
+	background-color: rgba(140, 140, 140, 0.6);
+	border: 1px solid #f9f9f9;
+	border-radius: 50%;
+
+	/*Positionnement CSS: fixed
+	- pour l'enlever du flux normal du document et le positionner par rapport à la fenêtre du navigateur (viewport)
+	- pour permettre également le positionnement de ses pseudo-éléments
+	*/
+
+	/*Positions top et left calculés avec JavaScript selon la position du pointeur de la souris dans la fenêtre (viewport) avec l'ajout d'un décalage pour que le centre du curseur perso corresponde à la position du pointeur par défaut (MOINS 1/2 largeur et MOINS 1/2 hauteur)*/
+
+	/*Affichage en avant-plan de tous les autres éléments HTML*/
+
+	/*Le curseur ne doit pas recevoir les événements de souris...*/
+
+	/*****NOUVELLE PROPRIÉTÉ*****/
+	/*Le navigateur doit être à l'affut des changements de propriétés du curseur
+    afin qu'il puisse mettre en place les optimisations nécessaires pour l'affichage et la réactivité de la page
+    La propriété will-change doir être utilisée avec PARCIMONIE
+    voir: https://developer.mozilla.org/fr/docs/Web/CSS/will-change
+  */
+}
+
+/* Cosmétique (point centre)
+====================================================================*/
+.curseur::before {
+	content: "";
+	position: absolute;
+	height: 0.6rem;
+	width: 0.6rem;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: #f9f9f9;
+	border-radius: 50%;
+}
