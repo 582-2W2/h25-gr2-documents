@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>2 - Propriétés des événements des animations</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+		/* Normalisation supplémentaire
+        =============================================== */
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		/* Mise en page de base
+        ================================================== */
+		html {
+			width: 100vw;
+			height: 100vh;
+			/*Ajustement de la taille des polices à la racine du document*/
+			font-size: clamp(14px, 0.5rem + 1vw, 18px);
+		}
+
+		body {
+			width: 100%;
+			height: 100%;
+			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+			text-align: center;
+			/*Conteneur Flex en colonne*/
+			display: flex;
+			flex-direction: column;
+		}
+
+		header,
+		footer {
+			/*Item flex*/
+			flex: 0 0 5%;
+
+			/*Décoration*/
+			padding: 0.5rem;
+			background-color: #ffeb3e;
+			color: #3e3e3e;
+		}
+
+		h1 {
+			margin: 0.5rem 0;
+			text-shadow: 0 2px 2px #b8b8b8;
+		}
+
+		section {
+			/*Étirement comme item flex*/
+			flex: 1 1 auto;
+
+			/*Conteneur flex en colonne*/
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			align-items: center;
+
+			/*Décoration*/
+			margin: 1rem 0;
+			background-color: #e4e4e4;
+		}
+
+
+		/* Animation */
+		@keyframes deplacer-rectangle {
+			from {
+				transform: translateX(0%);
+			}
+
+			to {
+				transform: translateX(200%);
+			}
+		}
+
+
+		.rectangle {
+			/*Alignement comme item flex*/
+			align-self: flex-start;
+			width: 33.3vw;
+			height: 50vh;
+			background-color: #21cbe1;
+			/*Bleu*/
+			/*Point de transformation à gauche au bas*/
+			transform-origin: left bottom;
+
+			/*Animation du rectangle : 5 itérations de 1 seconde*/
+			animation: deplacer-rectangle 1s 5 linear;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<h1>Écouter et gérer les événements des animations</h1>
+		<p>Le rectangle se déplacera <b>5</b> fois... La durée de chaque déplacement est de 1s.</p>
+	</header>
+
+	<section>
+		<h2>0 seconde(s) écoulé(es).</h2>
+		<div class="rectangle"></div>
+	</section>
+
+	<footer>
+		<p>Propriétés des événements des animations: <i>type</i>, <i>animationName</i> et <i>elapsedTime</i></p>
+	</footer>
+
+	<script>
+		// Récupérer le rectangle animé
+		let leRectangleAnime = document.querySelector(".rectangle");
+
+		// Récupérer l'élément dans lequel on va afficher les infos
+		let h2 = document.querySelector("section>h2");
+
+		// Attribuer les gestionnaires d'événement (itération et fin)
+
+
+		// Afficher l'info de base de l'animation...
+		function afficherInfo(evt) {
+			
+		}
+	</script>
+</body>
+
+</html>

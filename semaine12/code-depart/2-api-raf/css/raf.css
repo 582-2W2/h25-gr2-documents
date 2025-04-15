@@ -1,0 +1,77 @@
+/* CSS pour les fichiers de théorie sur l'API requestAnimationFrame (RAF)
+==================================================================== */
+
+/* Les deux carrés animés  - Fichier 01 théorie
+==================================================== */
+
+.carre {
+    width: 15vmin;
+    height: 15vmin;
+
+    font-weight: bolder;
+    line-height: 15vmin;
+    background-color: #ee2128;
+}
+
+/* La <div> animée - Fichier 02
+====================================================== */
+
+div {
+    background-color: #ee2128;
+    height: 10vh;
+    line-height: 10vh;
+    width: 0vw;
+}
+
+/* L'icône animé - Fichier 03 + rappel pseudo élément
+====================================================== */
+.bouton {
+    width: 35%;
+    height: 8vh;
+    line-height: 8vh;
+    background-color: #ee2128;
+    color: whitesmoke;
+    font-size: 1.5rem;
+    cursor: pointer;
+    /*Position CSS et transition*/
+    position: relative;
+    transform-origin: left top;
+    transition: transform 0.5s;
+}
+
+.bouton::before {
+    position: absolute;
+    content: "";
+    box-sizing: border-box;
+
+    top: 0%;
+    right: 100%;
+    width: 2rem;
+    height: 2rem;
+    transform: translate(50%, -50%);
+
+    border: 0.2rem solid #ee2128;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    opacity: 0;
+
+    transition: opacity 0.5s;
+}
+
+.bouton:hover,
+.bouton:active {
+    transform: rotate(1deg);
+}
+
+
+.bouton:hover::before,
+.bouton:active::before {
+    opacity: 1;
+}
+
+.material-icons {
+    color: whitesmoke;
+    align-self: center;
+    cursor: pointer;
+    font-size: 24rem;
+}

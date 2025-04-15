@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>1 - Événements des animations CSS</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<style>
+		/* Normalisation supplémentaire
+        =============================================== */
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+		/* Mise en page de base
+        ================================================== */
+		html {
+			width: 100vw;
+			height: 100vh;
+			/*Ajustement de la taille des polices à la racine du document*/
+			font-size: clamp(14px, 0.5rem + 1vw, 18px);
+		}
+
+		body {
+			width: 100%;
+			height: 100%;
+			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+			text-align: center;
+			/*Conteneur Flex en colonne*/
+			display: flex;
+			flex-direction: column;
+		}
+
+		header,
+		footer {
+			padding: 0.5rem;
+			background-color: #ffeb3e;
+			color: #3e3e3e;
+		}
+
+		h1 {
+			font-size: 1.6rem;
+			margin: 0.5rem 0;
+			text-shadow: 0 2px 2px #b8b8b8;
+		}
+
+		section {
+			/*Étirement comme item flex*/
+			flex: 1 1 auto;
+
+			/*Conteneur flex en rangée*/
+			display: flex;
+			align-items: center;
+
+			/*Décoration*/
+			margin: 1rem 0;
+			background-color: #e4e4e4;
+		}
+
+		/* Animation
+        ================================================== */
+
+		@keyframes deplacer-rectangle {
+			from {
+				transform: translateX(0%);
+				animation-timing-function: linear;
+			}
+
+			to {
+				transform: translateX(200%);
+			}
+		}
+
+		.rectangle {
+			width: 33.3vw;
+			height: 40vh;
+			background-color: #b8b8b8;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			cursor: pointer;
+
+			/*transition*/
+			transition: background-color 400ms;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<h1>Écouter et gérer les événements des animations</h1>
+	</header>
+
+	<section>
+		<div class="rectangle"> Cliquez sur moi pour commencer l'animation!</div>
+	</section>
+
+	<footer>
+		<p>
+			Cet exemple utilise la méthode addEventListener() pour gérer les événements 
+			<i>animationstart</i>, <i>animationiteration</i> et <i>animationend</i> 
+			d'un élément &lt;div&gt;.
+		</p>
+	</footer>
+
+	<script>
+		// Récupérer le rectangle
+		
+		// Écouteur d'événement pour démarrer l'animation sur l'événement "click"
+		
+		// Démarrer l'animation
+		function demarrerAnimation() {	// Notez bien : Pas besoin de l'objet Event ici !!
+			// Props de l'animation : nom: deplacer-rectangle, durée: 5s et 2 itérations
+
+			// Gestionnaires des événements de l'animation
+
+			// Retirer l'écouteur d'événement "click" sur le rectangle
+		}
+
+		// Gérer les différents états de l'animation
+		function analyserEtatAnimation(evt) {
+			// Démarrage
+
+			// Itération
+
+			// Fin
+		}
+	</script>
+</body>
+
+</html>
