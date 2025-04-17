@@ -19,15 +19,20 @@
 	<footer>Écrire avec des étoiles...un double-clic les enlève...</footer>
 
 	<script>
-		let ciel = document.querySelector("section");
-		let etoile = document.querySelector(".etoile-animee");
+		const ciel = document.querySelector("section");
 
+		const p2p = document.querySelector("footer");
+		let nbEtoiles = 0;
 		
 		ciel.addEventListener("mousedown", gererEcriture);
 		ciel.addEventListener("mouseup", gererEcriture);
 
 		
-		ciel.addEventListener("dblclick", ()=>ciel.innerHTML="");
+		ciel.addEventListener("dblclick", ()=>{
+			ciel.innerHTML = ""; 
+			nbEtoiles = 0;
+			p2p.innerText = nbEtoiles;
+		});
 
 		function gererEcriture(evt) {
 			if(evt.type == "mousedown") {
@@ -47,12 +52,13 @@
 		 * (informations sur l'événement MouseEvent distribué)
 		 */
 		function mettreEtoile(evt) {
-			let etoileAnim = document.createElement("div");
+			const etoileAnim = document.createElement("h6");
 			etoileAnim.classList.add("etoile-animee");
 			//L'étoile suit les coordonnées de la souris
 			etoileAnim.style.left = evt.clientX + "px";
 			etoileAnim.style.top = evt.clientY + "px";
 			ciel.append(etoileAnim);
+			p2p.innerText = nbEtoiles++;
 		}
 	</script>
 </body>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemple - Structure de données JS</title>
+</head>
+<body>
+  <h2>Liste des cours de la session 2</h2>
+  <dl>
+    
+  </dl>
+
+  <script>
+    // Tableau (Array, littéralement avec des crochets (brackets) : [])
+    const nomsProfsTIM = [
+      "Martin St-Pierre", 
+      "Ahmed Boudjani", 
+      "Stéphanie Pouliot", 
+      "Mathieu Dionne", 
+      "Manon Bertrand"
+    ];
+
+    // Objet (Object, littéralement avec des accolades (braces) : {})
+    const infoCoursWeb = {
+      sigle: "582-2W2",
+      session: "H",
+      nbHeures: 75,
+      prerequis: false,
+      corequis: true,
+      titre: "Animation et interactivité Web",
+      enseignants: ["Camille Semaan", "Vincent Leblanc"]
+    };
+
+    // Un peu plus complexe : un tableu d'objets
+    const listeCoursSession2 = [
+      {
+        sigle: "2W2",
+        titre: "Animation et interactivité Web"
+      },
+      {
+        sigle: "2J2",
+        titre: "Création de jeu 2D"
+      },
+      {
+        sigle: "2M2",
+        titre: "Conception graphique et imagerie vectorielle"
+      }
+    ]
+
+    const dl = document.querySelector("dl");
+    for (const cours of listeCoursSession2) {
+      const dt = document.createElement("dt");
+      dt.innerText = cours.sigle;
+      dl.append(dt);
+      
+      const dd = document.createElement("dd");
+      dd.innerText = cours.titre;
+      dl.append(dd);
+    }
+  </script>
+</body>
+</html>

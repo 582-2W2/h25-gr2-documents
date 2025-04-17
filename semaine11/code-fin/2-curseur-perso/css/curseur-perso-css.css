@@ -2,4 +2,14 @@
 ==================================================================== */
 img {
 	/*On modifie le curseur par défaut*/
+	cursor: url(../images/curseur-perso.png) 32 32, crosshair;
+}
+
+body {
+	/* cursor: url(../images/curseur-perso.png) 32 32, crosshair; */
+}
+
+a {
+	/* color: aliceblue;
+	cursor: url(../images/curseur-perso.png) 32 32, crosshair; */
 }

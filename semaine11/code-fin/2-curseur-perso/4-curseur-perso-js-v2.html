@@ -32,7 +32,22 @@
 	<div class="curseur"></div>
 
 	<script>
-		
+		const curseur = document.querySelector(".curseur");
+
+		document.body.addEventListener("mousemove",
+			evt => curseur.style.translate = `${evt.clientX}px ${evt.clientY}px`
+		);
+
+		// EXTRA !
+		// Quand on survol n'importe quelle image de la page Web, on cache le curseur perso
+		//  et quand on ne survol plus les images, on réaffiche le curseur perso..
+		const images = document.querySelectorAll("img");
+		images.forEach(
+			image => {
+				image.addEventListener("mouseover", () => curseur.classList.add("cacher"));
+				image.addEventListener("mouseout", () => curseur.classList.remove("cacher"));
+			}
+		);
 	</script>
 </body>
 

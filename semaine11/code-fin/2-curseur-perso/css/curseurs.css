@@ -1,13 +1,17 @@
 /* Aspect du curseur au survol des divisions
 ==================================================================== */
 div:nth-child(1) {
+  cursor: help;
 }
 
 div:nth-child(2) {
+  cursor: wait;
 }
 
 div:nth-child(3) {
+  cursor: zoom-in;
 }
 
 div:nth-child(4) {
+  cursor: grab;
 }
