@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8">
+	<title>3 - Gérer la fin d'une animation</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Police de caractères -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css?family=Nova+Mono" rel="stylesheet">
+
+	<style>
+		/* Normalisation supplémentaire
+        =============================================== */
+		*,
+		::before {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+
+
+		/* Mise en page de base pour petit périphérique
+        ================================================== */
+		html {
+			width: 100vw;
+			height: 100vh;
+			/*Ajustement de la taille des polices à la racine du document*/
+			font-size: clamp(14px, 0.5rem + 1vw, 18px);
+		}
+
+		body {
+			width: 100%;
+			height: 100%;
+			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+			text-align: center;
+			/*Conteneur Flex en colonne*/
+			display: flex;
+			flex-direction: column;
+		}
+
+		header,
+		footer {
+			/*Item flex*/
+			flex: 0 0 5%;
+
+			/*Décoration*/
+			padding: 0.5rem;
+			background-color: #ffeb3e;
+			color: #3e3e3e;
+		}
+
+		h1 {
+			margin: 0.5rem 0;
+			text-shadow: 0 2px 2px #b8b8b8;
+		}
+
+		section {
+			/*Étirement comme item flex*/
+			flex: 1 1 auto;
+			position: relative;
+
+			/*Conteneur flex en colonne*/
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			/*Décoration*/
+			margin: 1rem 0;
+			background-color: #e4e4e4;
+		}
+
+		.animer-mot {
+			position: relative;
+			font-family: 'Nova Mono', monospace;
+			color: white;
+			font-size: 10vw;
+			font-weight: bold;
+			text-shadow: 0 2px 2px #b8b8b8;
+		}
+
+		.animer-mot::before {
+			content: "";
+			position: absolute;
+			background-color: #e4e4e4;
+			left: 0%;
+			right: 0%;
+			top: 0%;
+			bottom: 0%;
+		}
+
+		.fin-animation-intro {
+			font-size: xx-large;
+			color: #3e3e3e;
+		}
+
+
+		/* Animations
+        ================================================== */
+
+		@keyframes animer-mot {
+			from {
+				left: 0%;
+			}
+
+			to {
+				left: 100%;
+			}
+		}
+
+		/**
+		* On démarre avec l'animation du mot - le nombre d'étapes correspond au nombre de lettres
+		*/
+
+		.animer-mot::before {
+			/*Animation par étape*/
+			animation: animer-mot 3s steps(15, end) forwards;
+		}
+
+		/* Animation de la couleur de la section attribuée avec un délai
+ 		========================================================================== */
+
+		@keyframes animer-couleur {
+			from {
+				background-color: #2B345B;
+			}
+
+			15%,
+			20% {
+				background-color: #356dc2;
+			}
+
+			35%,
+			40% {
+				background-color: #9CD6DE;
+			}
+
+			45%,
+			50% {
+				background-color: #F06E68;
+			}
+
+			65%,
+			70% {
+				background-color: #ECC963;
+			}
+
+			85%,
+			90% {
+				background-color: #356dc2;
+			}
+
+			to {
+				background-color: #D3DFDD;
+			}
+		}
+
+		/*L'animation est appliquée avec un délai de 3.5s*/
+		.animer-couleur {
+			animation: animer-couleur 750ms ease-out 3.5s;
+		}
+	</style>
+
+</head>
+
+<body>
+	<header>
+		<h1>Synchronisation et gestion de la fin d'une animation</h1>
+	</header>
+
+	<section class="animer-couleur">
+		<div class="animer-mot">ANIMATION-INTRO</div>
+	</section>
+
+	<footer>
+		<p>Utilisation de l'API <i>classList</i> et de l'événement <i>animationend</i>.</p>
+		<p>
+			Ajout et suppression de gestionnaires d'événement avec: <i>addEventListener</i> et
+			<i>removeEventListener</i>.
+		</p>
+	</footer>
+
+	<script>
+		/*
+		 * Gérer la fin de la dernière animation sur la section
+		 */
+
+		// La section animée
+		const section = document.querySelector("section");
+
+		// Écouteur d'événement pour identifier quand son animation sera terminée
+		section.addEventListener("animationend", demarrerApplication);
+
+		// Gérer la fin de l'animation de la section
+		function demarrerApplication(evt) {
+			console.log("Nom de l'animation qui vient de finir : ", evt.animationName);
+			
+			// Petite problématique... les conteneurs parents détectent la fin des 
+			// animations de leurs éléments enfants : on doit donc détecter si c'est  
+			// la fin de l'animation de la section qui a déclenché le gestionnaire 
+			// d'événement ...
+			if (evt.animationName == "animer-couleur") {
+				// On enlève le gestionnaire d'événement de fin de l'animation
+				section.removeEventListener("animationend", demarrerApplication);
+
+				// On change de classe CSS et on modifie le contenu texte et HTML
+				section.classList.replace("animer-couleur", "fin-animation-intro");
+				section.innerText = "On commence le jeu...";
+			}
+		}
+	</script>
+</body>
+
+</html>

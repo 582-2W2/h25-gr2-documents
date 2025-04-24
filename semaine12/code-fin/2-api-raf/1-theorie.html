@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="UTF-8" />
+	<title>1 - RAF/Théorie</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Importation des feuilles de style-->
+	<link rel="stylesheet" href="css/styles.css" />
+	<link rel="stylesheet" href="css/raf.css" />
+</head>
+
+<body>
+	<header>
+		<h1>setInterval()/SetI ou requestAnimationFrame()/RAF</h1>
+	</header>
+
+	<main>
+		<div class="carre">SetI</div>
+		<div class="carre">RAF</div>
+	</main>
+	<footer class="pied-page-1">
+		<p>
+			<strong>requestAnimationFrame()</strong> est la <em>version moderne</em> de <strong>setInterval()</strong>.
+			L'animation est
+			<em>synchronisée</em> avec le rafraichissement de l'écran et plus <em>fluide</em>. La fréquence moyenne de
+			rafraichissement
+			est de 60 fois par seconde (60ips), soit à tous les 16,666666 millisecondes (1000/60).<br /><br />
+			<strong>setInterval()</strong> ne se synchronise pas correctement avec l'actualisation de l'affichage, ce qui peut
+			souvent
+			provoquer un <em>scintillement</em> important. Notons aussi que setInterval() fonctionne uniquement avec des
+			<strong>nombres entiers</strong>, alors 1000/60 sera égal à <strong>17</strong> au lieu de
+			<strong>16,666666</strong> millisecondes, ce qui explique également certains sauts d'images.
+		</p>
+	</footer>
+
+	<script>
+		//Animation du premier carré avec setInterval (setTimeout)
+		const c1 = document.querySelector(".carre:first-child");
+		let deplacement1 = 0;
+
+		function deplacer1() {
+			console.log("On déplace : ", deplacement1);
+			
+			deplacement1 += 0.5;
+			c1.style.translate = deplacement1 + "vmin";
+			if(deplacement1 > 99) {
+				deplacement1 = 0;
+			}
+			setTimeout(deplacer1, 1000/60);
+		}
+		
+		setTimeout(deplacer1, 1000/60);
+
+		//Animation du deuxième carré avec requestAnimationFrame
+		const c2 = document.querySelector(".carre:last-child");
+		let deplacement2 = 0;
+
+		function deplacer2() {
+			deplacement2 += 0.5;
+			c2.style.translate = deplacement2 + "vmin";
+			if(deplacement2 > 99) {
+				deplacement2 = 0;
+			} 
+			requestAnimationFrame(deplacer2);
+		}
+
+		requestAnimationFrame(deplacer2);
+
+
+	</script>
+</body>
+
+</html>

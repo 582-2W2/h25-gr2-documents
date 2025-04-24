@@ -7,10 +7,10 @@
 > :construction: = en cours
 > :heavy_check_mark: = complété
 
-### Semaine 12 :checkered_flag:
+### Semaine 12 :construction:
 >JS : Événements JavaScript associés aux animations CSS. JS : Animation des éléments du `DOM` avec l'API `RequestAnimationFrame`.
 
-### Semaine 11 :construction:
+### Semaine 11 :heavy_check_mark:
 >JS : Interface MouseEvent du DOM. Application à la gestion d'un curseur personnalisé en CSS et JavaScript.
 
 ### Semaine 10 :heavy_check_mark:
