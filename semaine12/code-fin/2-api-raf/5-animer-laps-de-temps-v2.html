@@ -23,8 +23,11 @@
 	</header>
 
 	<main>
+		<h2 class="chargement">Temps depuis le chargement de la page : <span>0</span></h2>
+		<h2 class="demarrage">Temps de démarrage de l'animation : <span>0</span></h2>
+
 		<!-- Icône Google -->
-		<span class="material-icons">
+		<span class="material-icons engrenage">
 			settings
 		</span>
 	</main>
@@ -33,6 +36,47 @@
 	</footer>
 
 	<script>
+		const engrenage = document.querySelector(".engrenage");
+
+		// Créer l'animation
+		let rotation = 0;
+		let idRaf = 0;
+		let tempsDemarrageAnimation = 0;
+
+		function tourner(temps) {
+			engrenage.style.rotate = ++rotation + "deg";
+			idRaf = requestAnimationFrame(tourner);
+			console.log("Temps écoulé depuis le chargement de la page : ", temps);
+			// if (temps > 5000) {
+			// 	cancelAnimationFrame(idRaf);
+			// }
+
+			// Solution 1 (setTimeout) : 
+			// On utilise une minuterie traditionnelle pour annuler la
+			// requête d'animation après 5 secondes depuis le démarrage
+			// de l'animation
+			setTimeout(()=>cancelAnimationFrame(idRaf), 5000);
+
+			
+			// Solution 2 (utiliser la variable temps, mais intelligement)
+			// const h2Chargement = document.querySelector(".chargement span");
+			// const h2Demarrage = document.querySelector(".demarrage span");
+			// Marquer à quel temps l'animation démarre
+			// if(tempsDemarrageAnimation == 0) {
+			// 	tempsDemarrageAnimation = temps;
+			// 	h2Demarrage.innerText = tempsDemarrageAnimation;
+			// }
+			// // Arrêter l'animation dès que nous dépassons le temps de démarrage 
+			// //  par 5000 millisecondes
+			// if(temps-tempsDemarrageAnimation > 5000) {
+			// 	cancelAnimationFrame(idRaf)
+			// }
+
+			h2Chargement.innerHTML = temps;
+		}
+
+		engrenage.addEventListener("click", ()=>requestAnimationFrame(tourner))
+
 
 	</script>
 </body>

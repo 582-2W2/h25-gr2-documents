@@ -24,26 +24,58 @@
 
 	<main>
 		<!-- Icône Google -->
-		<span class="material-icons">
+		<span class="material-icons engrenage">
 			settings
 		</span>
 	</main>
 	<footer>
-		<div class="bouton">Partir l'animation </div>
-		<div class="bouton">Arrêter l'animation </div>
+		<div class="bouton btn-demarrer">Partir l'animation </div>
+		<div class="bouton btn-arreter">Arrêter l'animation </div>
 	</footer>
 
 	<script>
 		// Événements des boutons de contrôles de l'animation
+		document.querySelector(".btn-demarrer").addEventListener("click", demarrer);
+		document.querySelector(".btn-arreter").addEventListener("click", arreter);
+		const engrenage = document.querySelector(".engrenage");
+		engrenage.addEventListener("click", basculer);
 
 		// Créer l'animation
+		let rotation = 0;
+		let idRaf = 0;
+		function tourner() {
+			engrenage.style.rotate = ++rotation + "deg";
+			idRaf = requestAnimationFrame(tourner);
+			console.log("ID de la requête RAF : ", idRaf);
+			
+		}
 
 		// Démarrer l'animation
+		function demarrer() {
+			if(idRaf == 0) {
+				idRaf = requestAnimationFrame(tourner);
+			}
+		}
 
 		// Arrêter l'animation
+		function arreter() {
+			cancelAnimationFrame(idRaf);
+			idRaf = 0;
+		}
 
 		// Basculer l'état de l'animation
-
+		function basculer() {
+			idRaf==0 ? demarrer() : arreter();
+			
+			
+			// if(idRaf==0) {
+			// 	demarrer();
+			// }
+			// else {
+			// 	arreter();
+			// }
+			
+		}
 	</script>
 
 </body>

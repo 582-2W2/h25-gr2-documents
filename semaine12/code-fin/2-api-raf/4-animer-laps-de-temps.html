@@ -24,13 +24,28 @@
 
   <main>
     <!-- Icône Google -->
-    <span class="material-icons">
+    <span class="material-icons engrenage">
       settings
     </span>
   </main>
   <footer></footer>
 
   <script>
+    const engrenage = document.querySelector(".engrenage");
+
+		// Créer l'animation
+		let rotation = 0;
+		let idRaf = 0;
+		function tourner(temps) {
+			engrenage.style.rotate = ++rotation + "deg";
+			idRaf = requestAnimationFrame(tourner);
+			console.log("Temps écoulé depuis le chargement de la page : ", temps);
+      if(temps > 5000) {
+        cancelAnimationFrame(idRaf);
+      }
+		}
+
+    idRaf = requestAnimationFrame(tourner);
 
   </script>
 </body>

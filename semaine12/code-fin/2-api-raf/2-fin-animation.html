@@ -28,7 +28,20 @@
 	</footer>
 
 	<script>
-		
+		const div = document.querySelector("div");
+		let largeur = 0;
+
+		function etirer() {
+			largeur++;
+			div.style.width = largeur + "vw";
+			idRaf = requestAnimationFrame(etirer);
+			console.log("idRaf : ", idRaf);
+			if(largeur>99) {
+				cancelAnimationFrame(idRaf);
+			}
+		}
+
+		let idRaf = requestAnimationFrame(etirer);
 	</script>
 
 </body>
