@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+
+<head>
+	<title>3 - Exemple intégrateur - fin de session</title>
+	<meta charset="UTF-8" />
+	<link rel="icon" type="image/png" href="favicon.png" sizes="all">
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- Polices de caractères utilisées-->
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Train+One&display=swap" rel="stylesheet">
+
+	<!-- Polices d'icônes utilisées-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Références aux CSS-->
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="css/quiz.css">
+
+</head>
+
+<body>
+	<main class="intro">
+		<div class="anim-titre-intro">Chiffres et lettres</div>
+		<footer></footer>
+	</main>
+
+	<main class="quiz">
+		<header>
+			Super quiz
+			<div class="barre-avancement"></div>
+		</header>
+
+		<section>
+			<div class="titre-question"></div>
+			<div class="les-choix-de-reponse"></div>
+		</section>
+	</main>
+
+	<main class="fin">
+		<!-- La section contenant le score sera insérée dynamiquement ici -->
+		<span class="material-icons btn-recommencer">replay</span>
+	</main>
+
+	<!-- Chargement des scripts -->
+	<script src="js/questions.js"></script>
+	<script src="js/index.js"></script>
+</body>
+
+</html>

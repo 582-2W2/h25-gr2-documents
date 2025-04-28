@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8" />
+	<title>1 - localStorage / Théorie</title>
+
+	<style type="text/css">
+		/*Normalisation additionnelle*/
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		html,
+		body {
+			width: 100%;
+			height: 100%;
+		}
+
+		body {
+			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		header,
+		footer {
+			height: 10vh;
+			line-height: 10vh;
+			background-color: black;
+			color: white;
+			font-size: 2rem;
+		}
+
+		main {
+			flex: 1 0 auto;
+			padding: 2rem;
+		}
+
+		span {
+			color: orangered;
+		}
+	</style>
+</head>
+
+<body>
+	<header>L'API Web Storage</header>
+	<main>
+		<h3>Résultat 0 / La valeur de la couleur stockée est : <span class="resultat"></span></h3>
+		<h3>Résultat 1 / La valeur récupérée d'une donnée non stockée est : <span class="resultat"></span></h3>
+		<h3>Résultat 2 / Le type de la valeur récupérée est toujours : <span class="resultat"></span></h3>
+		<h3>
+			Résultat 3 / Sans conversion de type, une valeur récupérée va être concaténée si on essaie de l'incrémenter :
+			<span class="resultat"></span>
+		</h3>
+		<h3>
+			Résultat 4 / Si la valeur récupérée doit être de type numérique, il faut donc faire une conversion de type avant
+			la
+			concaténation avec Number() ou parseInt() : <span class="resultat"></span>
+		</h3>
+		<h3>Résultat 5 / Un objet passé en paramètre avec JSON.stringify(objet) va devenir de type : <span
+				class="resultat"></span></h3>
+		<h3>
+			Résultat 6 / Une chaîne représentant les clés/valeurs d'un objet passé en paramètre avec JSON.parse("chaineObjet")
+			va
+			devenir de type : <span class="resultat"></span>
+		</h3>
+		<h3>
+			Résultat 7 / On valide que l'objet récupéré est toujours valide en récupérant la valeur de sa propriété uneLettre
+			:
+			<span class="resultat"></span>
+		</h3>
+	</main>
+	<footer>L'objet window.localStorage...</footer>
+
+	<script>
+		//On récupère les balises pour insérer les résultats du code
+		let lesResultats = document.querySelectorAll(".resultat");
+
+		/*
+	La fonction clear() de localStorage permet de supprimer TOUTES les données stockées...
+	Cela peut être utile de l'utiliser lors du développement...
+	... dans le code ou directement dans la console...
+		*/
+
+		//localStorage.clear();
+
+		/* 
+	La fonction setItem de localStorage permet de définir une propriété et de l'associer à une valeur de type string
+
+	La fonction getItem de localStorage permet quant à elle de récupérer la valeur de cette propriété
+		*/
+
+		//Stockage  setItem("nom de la clé", "valeur")
+
+		//Récupération - getItem("nom de la clé")
+		lesResultats[0].innerText;
+
+		//Si une clé n'as pas été sauvegardée - la valeur récupérée sera null
+		lesResultats[1].innerText;
+
+		/* 
+				Les données sont toujours stockées sous forme de chaînes, au besoin on doit les convertir
+		*/
+
+		//On sauvegarde une valeur NORMALEMENT numérique : valeurNumerique?
+
+		//La valeur récupérée va toujours être de type chaîne
+		lesResultats[2].innerText;
+
+		//Si on l'incrémente sans la convertir, on va concaténer les valeurs
+		lesResultats[3].innerText;
+
+		//Il faut donc faire une conversion de type avent la concaténation
+		lesResultats[4].innerText;
+
+		/*
+				Pour stocker des données plus complexes, entre autres des objets JavaScript, 
+				il faudrait les convertir au préalable en chaînes de caractères puisque 
+				l'API Storage (localStorage et sessionStorage) ne supporte que ce type 
+				de valeurs.
+
+				Le format JSON (JavaScript Object Notation) est la solution idéale dans
+				ce contexte. 
+				
+				L'API JSON des navigateurs modernes permet le travail facile avec le 
+				format JSON :
+				1) JSON.stringify() prend en paramètre une valeur JavaScript quelconque 
+						et retourne une chaîne de caractères ;
+				2) JSON.parse() prend une chaîne de caractères au format JSON et retourne
+						la valeur JavaScript correspondante.
+		*/
+
+		//Déclaration de l'objet
+		let monObjet = {
+			uneLettre: "A",
+			unChiffre: 2,
+		};
+
+		//**************** CONVERSION ET STOCKAGE
+
+		let monObjet_EnChaine;
+		//localStorage.setItem("objetConvertiEnChaine", monObjet_EnChaine);
+
+		// Affichage....
+		lesResultats[5].innerText;
+
+		//**************** LECTURE ET CONVERSION
+		monObjet_EnChaine;
+		//Conversion en objet
+		monObjet;
+
+		// Affichage....
+		lesResultats[6].innerText;
+
+		//Validation
+		lesResultats[7].innerText;
+	</script>
+</body>
+
+</html>

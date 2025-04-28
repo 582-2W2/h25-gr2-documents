@@ -7,6 +7,9 @@
 > :construction: = en cours
 > :heavy_check_mark: = complété
 
+### Semaine 13 :checkered_flag:
+>JS : Stockage de données "locale" (c'est à dire, dans le browser) avec l'API HTML/JS Storage (et en particulier localStorage). Aussi : Exemple intégrateur de fin de session.
+
 ### Semaine 12 :construction:
 >JS : Événements JavaScript associés aux animations CSS. JS : Animation des éléments du `DOM` avec l'API `RequestAnimationFrame`.
 

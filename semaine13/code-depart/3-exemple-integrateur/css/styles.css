@@ -1,0 +1,94 @@
+/* Normalisation supplémentaire 
+============================================================================= */
+
+/* Notez l'utilisation des sélecteurs additionnels pour les pseudo-éléments */
+*,
+::before,
+::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	user-select: none;
+}
+
+/* Mise en page
+============================================================*/
+html {
+	width: 100vw;
+	height: 100vh;
+	max-width: 100%;
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	/* Ajustement de la taille des polices à la racine du document */
+	font-size: clamp(14px, 0.5rem + 0.5vw, 24px);
+}
+
+body {
+	max-width: 100%;
+	height: 100%;
+	background-color: #1558e4;
+	color: whitesmoke;
+	overflow: hidden;
+}
+
+main {
+	width: 100vw;
+	height: 100vh;
+
+	/*Conteneur flex en rangée pour l'intro...*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+header {
+	min-height: 15vh;
+	width: 100%;
+	text-align: center;
+	border-bottom: 1px solid whitesmoke;
+
+	/*Conteneur flex en rangée*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/*Ne peut rétrécir comme item flex*/
+	flex: 0 0 auto;
+}
+
+footer {
+	min-height: 10vh;
+	width: 100vw;
+	text-align: center;
+	border-top: 1px solid whitesmoke;
+
+	/*Position fixe*/
+	position: fixed;
+	bottom: 0;
+
+	/*Conteneur flex en rangée*/
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	/*Ne peut rétrécir comme item flex*/
+	flex: 0 0 auto;
+}
+
+h1 {
+	font-family: 'Train One', cursive;
+	font-size: 2.5rem;
+}
+
+section {
+	width: 100vw;
+	height: 85vh;
+
+	font-size: 2rem;
+	text-align: center;
+
+	/*Conteneur flex colonne*/
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}

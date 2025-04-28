@@ -1,0 +1,272 @@
+/* Palette de couleur utilisée */
+/* ========================================================================== */
+:root {
+	--succes-texte: green;
+	--succes-fond: rgba(0, 255, 0, 0.5);
+	--echec-texte: red;
+	--echec-fond: rgba(255, 0, 0, 0.5);
+
+	--couleur-pale: whitesmoke;
+}
+
+/* Animation du titre de l'intro*/
+/* ========================================================================== */
+@keyframes monter-mot {
+	from {
+		transform: translateY(60vh);
+	}
+
+	to {
+		transform: translateY(0vh);
+	}
+}
+
+
+@keyframes etirer-mot {
+	from {
+		transform: scale(1, 1);
+	}
+
+	30% {
+		transform: scale(1.25, 0.75);
+	}
+
+	40% {
+		transform: scale(0.75, 1.25);
+	}
+
+	50% {
+		transform: scale(1.15, 0.85);
+	}
+
+	65% {
+		transform: scale(.95, 1.05);
+	}
+
+	75% {
+		transform: scale(1.05, .95);
+	}
+
+	to {
+		transform: scale(1, 1);
+	}
+}
+
+
+.anim-titre-intro {
+	font-family: 'Train One', cursive;
+	text-align: center;
+	font-size: 8rem;
+	animation: monter-mot 350ms, etirer-mot 1250ms 350ms cubic-bezier(0.215, 0.610, 0.355, 1.000);
+}
+
+
+/* Animation du choix de réponse */
+/* ========================================================================== */
+@keyframes animer-reponse-succes {
+
+	from,
+	70%,
+	end {
+		transform: translateY(0);
+	}
+
+	10%,
+	30%,
+	50% {
+		transform: translateY(-5%);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateY(5%);
+	}
+}
+
+@keyframes animer-reponse-echec {
+
+	from,
+	70%,
+	end {
+		transform: translateX(0);
+	}
+
+	10%,
+	30%,
+	50% {
+		transform: translateX(-5%);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: translateX(5%);
+	}
+}
+
+div.choix.reponse-succes {
+	animation: animer-reponse-succes 1s;
+	color: var(--succes-texte);
+	background-color: var(--succes-fond);
+	transition: color 2s, background-color 2s;
+}
+
+div.choix.reponse-echec {
+	animation: animer-reponse-echec 1s;
+	color: var(--echec-texte);
+	background-color: var(--echec-fond);
+	transition: color 2s, background-color 2s;
+}
+
+/* Mise en page des questions du quiz
+============================================================*/
+main.quiz {
+	/*Conteneur flex en colonne*/
+	flex-direction: column;
+
+	/*N'est pas affiché au démarrage*/
+	display: none;
+}
+
+main.quiz>header {
+	font-family: 'Train One', cursive;
+	font-size: 4rem;
+	padding-bottom: 3rem;
+
+	/* Position afin de pouvoir animer la barre d'avancement */
+	position: relative;
+}
+
+/* La barre qui illustre l'avancement du quiz */
+.barre-avancement {
+	width: 0vw;
+	height: 3vh;
+	background-color: var(--couleur-pale);
+
+	position: absolute;
+	left: 0;
+	bottom: 0;
+}
+
+section .titre-question {
+	font-size: 1.5rem;
+	width: 90%;
+	margin-top: 1rem;
+}
+
+section .les-choix-de-reponse {
+	width: 90vw;
+	/*Étirement comme item flex*/
+	flex: 1 1 auto;
+	/*Conteneur flex en colonne*/
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+section .les-choix-de-reponse.desactiver {
+	pointer-events: none;
+}
+
+div.choix {
+	font-size: 8rem;
+	font-weight: bold;
+	width: 30vmin;
+	height: 30vmin;
+	line-height: 30vmin;
+	color: var(--couleur-pale);
+	border: 4px solid var(--couleur-pale);
+	border-radius: 50%;
+	position: relative;
+	/*Pour le pseudo-élément*/
+	/*Curseur personnalisé*/
+	cursor: url(../media/curseur-perso.png) 32 32, pointer;
+
+	transition: transform 0.5s;
+}
+
+/*Mettre l'image de la bulle en avant plan avec un pseudo-élément*/
+div.choix::before {
+	position: absolute;
+	content: "";
+	left: 0%;
+	top: 0%;
+	right: 0%;
+	bottom: 0%;
+	background-image: url("../media/bulle.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+div.choix:hover,
+div.choix:active {
+	transform: scale(1.2);
+}
+
+main.fin {
+	font-size: 5rem;
+	/*Conteneur flex en colonne*/
+	flex-direction: column;
+	/*Non affiché au démarrage*/
+	display: none;
+}
+
+@keyframes animer-resultat {
+	from {
+		transform: scale(0) rotateZ(0);
+	}
+
+	to {
+		transform: scale(100%) rotateZ(3600deg);
+	}
+}
+
+main.fin .resultat {
+	display: flex;
+	flex-direction: row;
+	width: 20rem;
+	height: 10rem;
+	background-color: var(--couleur-pale);
+	color: #1558e4;
+	transform: scale(0) rotateZ(0);
+	animation: animer-resultat 1s forwards;
+}
+
+main.fin .btn-recommencer {
+	cursor: pointer;
+	font-size: 3rem;
+	margin-top: 2rem;
+	opacity: 0;
+	transition: opacity 2s;
+}
+
+/* Ajustement pour les écrans de taille moyenne et plus grande
+=============================================================== */
+@media screen and (min-width: 768px) {
+
+	section .les-choix-de-reponse {
+		/*Conteneur flex en rangée*/
+		flex-direction: row;
+	}
+
+}
+
+@media screen and (min-width: 992px) {
+
+	main.quiz>header {
+		font-size: 5rem;
+	}
+
+	section .titre-question {
+		font-size: 4rem;
+	}
+
+	div.choix {
+		font-size: 12rem;
+		width: 40vmin;
+		height: 40vmin;
+		line-height: 40vmin;
+	}
+}
