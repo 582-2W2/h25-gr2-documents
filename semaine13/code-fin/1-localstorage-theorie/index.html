@@ -96,37 +96,26 @@
 
 		//Stockage  setItem("nom de la clé", "valeur")
 
-		window.localStorage.setItem("langue", "English");
-		localStorage.setItem("couleur", "#900");
-		localStorage.setItem("theme", "nuit");
-		console.log("Nombre de stockage LS : ", localStorage.length);
-		console.log("Fonction key() : ", localStorage.key(0));
-		localStorage.removeItem("langue");
-
-		
-
 		//Récupération - getItem("nom de la clé")
-		lesResultats[0].innerText = localStorage.getItem("couleur");
+		lesResultats[0].innerText;
 
 		//Si une clé n'as pas été sauvegardée - la valeur récupérée sera null
-		lesResultats[1].innerText = typeof localStorage.getItem("existepas");
-		console.log("Valeur qui n'existe pas : ", localStorage.getItem("existepas"))
+		lesResultats[1].innerText;
+
 		/* 
 				Les données sont toujours stockées sous forme de chaînes, au besoin on doit les convertir
 		*/
 
 		//On sauvegarde une valeur NORMALEMENT numérique : valeurNumerique?
 
-		localStorage.setItem("age", 34);
-
 		//La valeur récupérée va toujours être de type chaîne
-		lesResultats[2].innerText = typeof localStorage.getItem("age");
+		lesResultats[2].innerText;
 
 		//Si on l'incrémente sans la convertir, on va concaténer les valeurs
-		lesResultats[3].innerText = localStorage.getItem("age") + 10;
+		lesResultats[3].innerText;
 
 		//Il faut donc faire une conversion de type avent la concaténation
-		lesResultats[4].innerText = localStorage.getItem("age")-0 + 10;
+		lesResultats[4].innerText;
 
 		/*
 				Pour stocker des données plus complexes, entre autres des objets JavaScript, 
@@ -145,32 +134,30 @@
 						la valeur JavaScript correspondante.
 		*/
 
-		const panier = {
-			p001: {
-				prix: 19.99,
-				nom: "T-shirt bla bla bla",
-				qte: 3
-			},
-			p015: {
-				prix: 58.50,
-				nom: "Hoodie patati et patata",
-				qte: 1
-			}
+		//Déclaration de l'objet
+		let monObjet = {
+			uneLettre: "A",
+			unChiffre: 2,
 		};
 
-		const panierChaine = JSON.stringify(panier);
+		//**************** CONVERSION ET STOCKAGE
 
-		localStorage.setItem("panier-exemple", panier);
-		localStorage.setItem("panier-exemple2", panierChaine)
-		
-		// On récupère la chaîne JSON de localStorage : 
-		const panierJson = localStorage.getItem("panier-exemple2");
+		let monObjet_EnChaine;
+		//localStorage.setItem("objetConvertiEnChaine", monObjet_EnChaine);
 
-		const panierObjet = JSON.parse(panierJson);
-		
-		lesResultats[5].innerText = typeof panierJson;
-		lesResultats[6].innerText = typeof panierObjet;
-		lesResultats[7].innerText = panierObjet.p001.prix;
+		// Affichage....
+		lesResultats[5].innerText;
+
+		//**************** LECTURE ET CONVERSION
+		monObjet_EnChaine;
+		//Conversion en objet
+		monObjet;
+
+		// Affichage....
+		lesResultats[6].innerText;
+
+		//Validation
+		lesResultats[7].innerText;
 	</script>
 </body>
 

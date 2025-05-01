@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+	<meta charset="utf-8" />
+	<title>2 - localStorage - pratique : données simples</title>
+
+	<!-- Ajustement de la taille du viewport-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!-- Intégration des polices d'icônes Google -->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+	<!-- Intégration des feuilles de style -->
+	<link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+	<header>
+		<h2>Stockage de données locales</h2>
+		<div class="pratique">
+			<div class="material-icons">wb_sunny</div>
+			<input type="checkbox" id="cc-couleur-theme" />
+			<label for="cc-couleur-theme" class="choix-couleur"></label>
+			<div class="material-icons">dark_mode</div>
+		</div>
+	</header>
+
+	<section>
+		<h3>Cliques dans la section pour mémoriser ton score (nombre de clics dans la section!!!)</h3>
+		<p>Nombre de clic(s) pour cette joute : <span id="score">0</span></p>
+		<p>Meilleur score : <span id="meilleur-score">0</span></p>
+	</section>
+	<footer>
+		<p></p>
+	</footer>
+
+	<!-- Intégration du script -->
+	<script src="js/index.js"></script>
+</body>
+
+</html>
